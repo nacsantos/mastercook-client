@@ -95,7 +95,7 @@ const Navbar = ({ toogle }) => {
 					</NavMenu>
 					<NavBtrWrapper>
 						<NavBtn>
-							<NavBtnLink to="/signin">Sign Up</NavBtnLink>
+							<NavBtnLink to="/signup">Sign Up</NavBtnLink>
 						</NavBtn>
 						<NavBtn>
 							<NavBtnLink to="/signin">Sign In</NavBtnLink>
