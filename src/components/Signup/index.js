@@ -3,7 +3,7 @@ import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Redirect } from "react-router-dom";
-
+import { withRouter } from "react-router-dom";
 import {
 	Container,
 	FormWrap,
@@ -16,45 +16,21 @@ import {
 	FormButton,
 	Text,
 } from "./SigupElements";
-
-const optionsError = {
-	type: toast.TYPE.ERROR,
-	position: "top-right",
-	autoClose: 5000,
-	hideProgressBar: false,
-	closeOnClick: true,
-	pauseOnHover: true,
-	draggable: true,
-	progress: undefined,
-};
-const optionsSuccess = {
-	type: toast.TYPE.SUCCESS,
-	position: "top-right",
-	autoClose: 5000,
-	hideProgressBar: false,
-	closeOnClick: true,
-	pauseOnHover: true,
-	draggable: true,
-	progress: undefined,
-	//onClose: () => <Redirect to="/" />,
-};
-export default class SignUp extends Component {
+class SignUp extends Component {
 	constructor(props) {
 		super(props);
-		this.state = { name: "", email: "", password: "", password2: "" };
+		this.state = {
+			name: "",
+			email: "",
+			password: "",
+			password2: "",
+		};
 		this.handleInputChange = this.handleInputChange.bind(this);
 		this.handleSubmit = this.handleSubmit.bind(this);
 	}
 
 	handleSubmit = async (event) => {
 		event.preventDefault();
-
-		const user = {
-			name: this.state.name,
-			email: this.state.password,
-			password: this.state.password,
-			password2: this.state.password2,
-		};
 		axios
 			.post("https://ipm-12-backend.herokuapp.com/api/users/register", {
 				name: this.state.name,
@@ -62,14 +38,32 @@ export default class SignUp extends Component {
 				password: this.state.password,
 				password2: this.state.password2,
 			})
-			.then(function (response) {
-				let messageSuccess = "Registered with success";
-				toast.success(messageSuccess, optionsSuccess);
-			})
-			.catch(function (error) {
-				let messageError = error.response.data.error;
-				toast.error(messageError, optionsError);
-			});
+			.then(
+				(response) => {
+					toast.success("Registered with success!", {
+						position: "top-right",
+						autoClose: 5000,
+						hideProgressBar: false,
+						closeOnClick: true,
+						pauseOnHover: true,
+						draggable: true,
+						progress: undefined,
+						onClose: () => this.props.history.push("/"),
+					});
+				},
+				(error) => {
+					let messageError = error.response.data.error;
+					toast.error(messageError, {
+						position: "top-right",
+						autoClose: 5000,
+						hideProgressBar: false,
+						closeOnClick: true,
+						pauseOnHover: true,
+						draggable: true,
+						progress: undefined,
+					});
+				}
+			);
 	};
 
 	handleInputChange(event) {
@@ -133,3 +127,4 @@ export default class SignUp extends Component {
 		);
 	}
 }
+export default withRouter(SignUp);
