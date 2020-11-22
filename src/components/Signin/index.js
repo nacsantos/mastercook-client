@@ -1,5 +1,5 @@
-import React from "react";
-
+import React, { useContext } from "react";
+import { Context } from "../../Context/AuthContext";
 import {
 	Container,
 	FormWrap,
@@ -14,6 +14,14 @@ import {
 } from "./SiginElements";
 
 const SignIn = () => {
+	const { handleChangeValues, handleLogin } = useContext(Context);
+
+	function onChange(event) {
+		handleChangeValues(event);
+	}
+	function onSubmit() {
+		handleLogin();
+	}
 	return (
 		<Container>
 			<FormWrap>
@@ -22,10 +30,26 @@ const SignIn = () => {
 					<Form action="#">
 						<FormH1>Sign in to your account</FormH1>
 						<FormLabel htmlFor="for">Email</FormLabel>
-						<FormInput type="email" required />
+						<FormInput
+							type="email"
+							required
+							id="email"
+							name="email"
+							onChange={onChange}
+							// value={values.user}
+						/>
 						<FormLabel htmlFor="for">Password</FormLabel>
-						<FormInput type="password" required />
-						<FormButton type="submit">Continue</FormButton>
+						<FormInput
+							type="password"
+							required
+							id="password"
+							name="password"
+							onChange={onChange}
+							// value={values.password}
+						/>
+						<FormButton type="button" onClick={handleLogin}>
+							Continue
+						</FormButton>
 						<Text>Forgot password</Text>
 					</Form>
 				</FormContent>
