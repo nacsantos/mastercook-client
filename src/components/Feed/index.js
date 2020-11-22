@@ -6,10 +6,12 @@ function Feed() {
 	useEffect(() => {}, []);
 	return (
 		<>
-			<div>Hello from div</div>
+			<div>
+				<h1>Hello from Feed...you're logged!</h1>
+			</div>
 			<div>
 				<button type="button" onClick={handleLogout}>
-					Sair
+					Logout
 				</button>
 			</div>
 		</>
