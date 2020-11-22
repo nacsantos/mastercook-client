@@ -19,9 +19,7 @@ const SignIn = () => {
 	function onChange(event) {
 		handleChangeValues(event);
 	}
-	function onSubmit() {
-		handleLogin();
-	}
+
 	return (
 		<Container>
 			<FormWrap>

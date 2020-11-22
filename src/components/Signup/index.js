@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { withRouter } from "react-router-dom";
@@ -15,6 +14,8 @@ import {
 	FormButton,
 	Text,
 } from "./SigupElements";
+import api from "../../api";
+
 class SignUp extends Component {
 	constructor(props) {
 		super(props);
@@ -30,8 +31,8 @@ class SignUp extends Component {
 
 	handleSubmit = async (event) => {
 		event.preventDefault();
-		axios
-			.post("https://ipm-12-backend.herokuapp.com/api/users/register", {
+		api
+			.post("/api/users/register", {
 				name: this.state.name,
 				email: this.state.email,
 				password: this.state.password,

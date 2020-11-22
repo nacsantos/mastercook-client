@@ -5,7 +5,6 @@ import SigninPage from "./pages/signin";
 import SignupPage from "./pages/signup";
 import FeedPage from "./pages/feed";
 import Home from "./pages";
-import Loader from "react-loaders";
 
 function CustomRoute({ isPrivate, ...rest }) {
 	const { loading, authenticated } = useContext(Context);
