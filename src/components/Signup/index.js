@@ -15,7 +15,6 @@ import {
 	Text,
 } from "./SigupElements";
 import api from "../../api";
-
 class SignUp extends Component {
 	constructor(props) {
 		super(props);

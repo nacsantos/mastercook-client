@@ -5,6 +5,7 @@ import SigninPage from "./pages/signin";
 import SignupPage from "./pages/signup";
 import FeedPage from "./pages/feed";
 import Home from "./pages";
+import { RecipePage } from "./pages/recipe";
 
 function CustomRoute({ isPrivate, ...rest }) {
 	const { loading, authenticated } = useContext(Context);
@@ -27,6 +28,7 @@ export default function Routes() {
 			<CustomRoute exact path="/signin" component={SigninPage} />
 			<CustomRoute exact path="/signup" component={SignupPage} />
 			<CustomRoute isPrivate exact path="/feed" component={FeedPage} />
+			<CustomRoute isPrivate exact path="/recipes/add" component={RecipePage} />
 		</Switch>
 	);
 }

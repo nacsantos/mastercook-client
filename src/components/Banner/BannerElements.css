@@ -1,0 +1,19 @@
+#bannerRecipe {
+    background: url('../../assets/images/banner.jpg') no-repeat;
+    background-size: cover;
+    filter: grayscale(50%);
+    font-size: 30px;
+    color: #fff;
+}
+
+.col{
+    height: 150px;
+}
+
+.text-center {
+    text-align:center
+ }
+
+.h1Center {
+    margin-top: 5%;
+}
