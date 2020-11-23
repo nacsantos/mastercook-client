@@ -1,6 +1,8 @@
 import React from "react";
 import { Form, Row, Col } from "react-bootstrap";
 import AddIngredient from "./addIngredient";
+import AddPhotos from "./addPhotos";
+import AddStep from "./addSteps";
 
 const RecipeForm = () => {
 	return (
@@ -27,8 +29,12 @@ const RecipeForm = () => {
 						<Row>
 							<AddIngredient />
 						</Row>
-						<Row>Steps</Row>
-						<Row>Photos</Row>
+						<Row>
+							<AddStep />
+						</Row>
+						<Row>
+							<AddPhotos />
+						</Row>
 					</Col>
 				</Row>
 			</div>

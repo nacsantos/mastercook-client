@@ -1,7 +1,7 @@
 import React from "react";
 import Feed from "../components/Feed";
 import Navbar3 from "../components/Navbar3";
-// import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 const FeedPage = () => {
 	return (
