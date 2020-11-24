@@ -11,7 +11,7 @@ import {
 	ArrowRight,
 } from "./HeroElements";
 import { Button } from "../ButtonElement";
-import Video from "../../videos/video.mp4";
+import Video from "../../videos/masterbook.mp4";
 
 function HeroSection() {
 	const [hover, setHover] = useState(false);
@@ -26,7 +26,7 @@ function HeroSection() {
 				<VideoBg autoPlay loop muted src={Video} type="video/mp4" />
 			</HeroBg>
 			<HeroContent>
-				<HeroH1>Master in the kitchen</HeroH1>
+				<HeroH1>Master the kitchen</HeroH1>
 				<HeroP>
 					With Mastercook you not only learn to cook, you can save time and
 					money.
@@ -42,6 +42,7 @@ function HeroSection() {
 						duration={500}
 						spy={true}
 						exact="true"
+						className="orange-button"
 					>
 						Get Started {hover ? <ArrowForward /> : <ArrowRight />}
 					</Button>

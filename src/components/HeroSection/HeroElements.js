@@ -80,6 +80,10 @@ export const HeroBtnWrapper = styled.div`
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+
+	&:hover {
+		color: #E67F22;
+	}
 `;
 
 export const ArrowForward = styled(MdArrowForward)`
