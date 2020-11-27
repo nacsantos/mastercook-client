@@ -12,6 +12,9 @@ function AuthProvider({ children }) {
 		handleLogout,
 		handleChangeValues,
 		values,
+		errorMessage,
+		errorLogin,
+		setErrorLogin,
 	} = useAuth();
 
 	return (
@@ -23,6 +26,9 @@ function AuthProvider({ children }) {
 				handleLogout,
 				handleChangeValues,
 				values,
+				errorMessage,
+				errorLogin,
+				setErrorLogin,
 			}}
 		>
 			{children}

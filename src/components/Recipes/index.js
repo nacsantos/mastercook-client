@@ -1,5 +1,5 @@
 import React from "react";
-import { Form, Row, Col } from "react-bootstrap";
+import { Form, Row, Col, Button } from "react-bootstrap";
 import AddIngredient from "./addIngredient";
 import AddPhotos from "./addPhotos";
 import AddStep from "./addSteps";
@@ -35,6 +35,9 @@ const RecipeForm = () => {
 						<Row>
 							<AddPhotos />
 						</Row>
+					</Col>
+					<Col>
+						<Button>Add recipe</Button>
 					</Col>
 				</Row>
 			</div>
