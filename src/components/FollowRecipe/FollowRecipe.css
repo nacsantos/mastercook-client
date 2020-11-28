@@ -1,0 +1,18 @@
+.followrecipe-container{
+    min-height: 25rem;
+}
+
+.followrecipe-button-col{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.followrecipe-inst-col{
+    display: flex;
+    align-items: center;
+}
+
+.time-text{
+    font-size: 3rem;
+}

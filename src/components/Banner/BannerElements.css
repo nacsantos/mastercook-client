@@ -4,10 +4,14 @@
     filter: grayscale(50%);
     font-size: 30px;
     color: #fff;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
 }
 
-.col{
-    height: 150px;
+.banner-col{
+    height: 8rem;
+    align-items: center;
+    display: flex;
 }
 
 .text-center {
@@ -15,5 +19,8 @@
  }
 
 .h1Center {
-    margin-top: 5%;
+    font-family: 'Dancing Script', cursive;
+    font-weight: 900;
+    margin-bottom: 0px;
+    font-size: 4rem;
 }

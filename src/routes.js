@@ -5,6 +5,7 @@ import SigninPage from "./pages/signin";
 import SignupPage from "./pages/signup";
 import FeedPage from "./pages/feed";
 import Home from "./pages";
+import { CreateRecipePage } from "./pages/createRecipe";
 import { RecipePage } from "./pages/recipe";
 
 function CustomRoute({ isPrivate, ...rest }) {
@@ -14,9 +15,9 @@ function CustomRoute({ isPrivate, ...rest }) {
 		return <h1>Loading...</h1>;
 	}
 
-	if (isPrivate && !authenticated) {
+	/*if (isPrivate && !authenticated) {
 		return <Redirect to="/" />;
-	}
+	}*/
 
 	return <Route {...rest} />;
 }
@@ -28,7 +29,8 @@ export default function Routes() {
 			<CustomRoute exact path="/signin" component={SigninPage} />
 			<CustomRoute exact path="/signup" component={SignupPage} />
 			<CustomRoute isPrivate exact path="/feed" component={FeedPage} />
-			<CustomRoute isPrivate exact path="/recipes/add" component={RecipePage} />
+			<CustomRoute isPrivate exact path="/recipes/add" component={CreateRecipePage} />
+			<CustomRoute isPrivate exact path="/recipe/x" component={RecipePage} />
 		</Switch>
 	);
 }
