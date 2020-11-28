@@ -1,17 +1,20 @@
 import React from "react";
-import { Row, Col } from "react-bootstrap";
+import { Container, Row, Col } from "react-bootstrap";
+
 import "./BannerElements.css";
 
-const Banner = () => {
+const Banner = (props) => {
+
+
 	return (
 		<>
-			<div className="container" id="bannerRecipe">
+			<Container id="bannerRecipe">
 				<Row>
-					<Col className="align-self-center">
-						<h1 className="h1Center">Add Recipe</h1>
+					<Col className="banner-col">
+						<h1 className="h1Center">{props.recipeName}</h1>
 					</Col>
 				</Row>
-			</div>
+			</Container>
 		</>
 	);
 };
