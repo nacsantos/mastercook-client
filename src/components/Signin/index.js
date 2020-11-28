@@ -38,12 +38,7 @@ const SignIn = () => {
 };
 
 const LoginForm = (props) => {
-	const {
-		handleChangeValues,
-		handleLogin,
-		errorMessage,
-		errorLogin,
-	} = useContext(Context);
+	const { handleChangeValues, handleLogin } = useContext(Context);
 
 	function onChange(event) {
 		handleChangeValues(event);
