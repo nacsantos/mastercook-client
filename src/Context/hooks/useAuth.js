@@ -6,6 +6,8 @@ export default function useAuth() {
 	const [authenticated, setAuthenticated] = useState(false);
 	const [loading, setLoading] = useState(true);
 	const [values, setValues] = useState(initialState);
+	const [errorLogin, setErrorLogin] = useState(false);
+	const [errorMessage, setErrorMessage] = useState("");
 
 	function initialState() {
 		return { email: "", password: "" };
@@ -28,16 +30,27 @@ export default function useAuth() {
 	}, []);
 
 	async function handleLogin() {
-		const {
-			data: { token },
-		} = await api.post("/api/users/login", {
-			email: values.email,
-			password: values.password,
-		});
-		localStorage.setItem("token", JSON.stringify(token));
-		api.defaults.headers.Authorization = `Bearer ${token}`;
-		setAuthenticated(true);
-		history.push("/feed");
+		api
+			.post("/api/users/login", {
+				email: values.email,
+				password: values.password,
+			})
+			.then(
+				(response) => {
+					console.log(response);
+					let token = response.data.token;
+					localStorage.setItem("token", JSON.stringify(token));
+					api.defaults.headers.Authorization = `Bearer ${token}`;
+					setAuthenticated(true);
+					history.push("/feed");
+				},
+				(error) => {
+					let messageError = error.response.data.error;
+					console.log(messageError);
+					setErrorMessage(messageError);
+					setErrorLogin(true);
+				}
+			);
 	}
 
 	function handleLogout() {
@@ -54,5 +67,8 @@ export default function useAuth() {
 		handleLogout,
 		handleChangeValues,
 		values,
+		errorLogin,
+		errorMessage,
+		setErrorLogin,
 	};
 }

@@ -1,45 +1,13 @@
-import React, { useState } from "react";
-import { Row, Form, Button } from "react-bootstrap";
+import React, { useContext } from "react";
+import "./addIngredient.css";
+import TodoList from "./recipes_components/TodoList";
 
-function AddIngredient() {
-	const [items, setItems] = useState([]);
-	const [itemName, setItemName] = useState("");
-
-	const addItem = (event) => {
-		event.preventDefault();
-		setItems([
-			...items,
-			{
-				id: items.length,
-				name: itemName,
-			},
-		]);
-		setItemName("");
-	};
+function AddIngredient(props) {
+	const { label, labelPlaceholder } = props;
 	return (
-		<>
-			<div className="container">
-				<h2>Add ingredient/product</h2>
-				<Row>
-					<Form onSubmit={addItem}>
-						<input
-							name="item"
-							type="text"
-							value={itemName}
-							onChange={(e) => setItemName(e.target.value)}
-						/>
-						<Button type="submit">Add</Button>
-					</Form>
-				</Row>
-				<ul>
-					{items.map((item) => (
-						<Row>
-							<li key={item.id}>{item.name}</li>
-						</Row>
-					))}
-				</ul>
-			</div>
-		</>
+		<div className="todo-app">
+			<TodoList {...props}/>
+		</div>
 	);
 }
 
