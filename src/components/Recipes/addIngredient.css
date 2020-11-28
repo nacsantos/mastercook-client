@@ -19,7 +19,7 @@
     justify-content: center;
     width: 520px;
     min-height: 100px;
-    background: #161a2b;
+    background: #949ab0;
     text-align: center;
     /* margin: 128px auto; */
     border-radius: 10px;
@@ -33,7 +33,7 @@
   
   h6 {
     margin: 10px 0;
-    color: #fff;
+    color: black;
     font-size: 16px;
   }
   
@@ -47,31 +47,33 @@
   }
   
   .todo-input {
-    padding: 14px 32px 14px 16px;
+    padding: 5px 32px 5px 16px;
     border-radius: 4px 0 0 4px;
-    border: 2px solid #5d0cff;
+    border: 2px solid black;
     outline: none;
     width: 320px;
     background: transparent;
-    color: #fff;
+    color:black;
   }
   
   .todo-input::placeholder {
-    color: #e2e2e2;
+    /* color: #e2e2e2; */
+    color: #fff;
   }
   
   .todo-button {
-    padding: 16px;
+    padding: 7px;
     border: none;
     border-radius: 0 4px 4px 0;
     cursor: pointer;
     outline: none;
-    background: linear-gradient(
+    background-color: rgb(185, 128, 23);
+    /* background: linear-gradient(
       90deg,
-      rgba(93, 12, 255, 1) 0%,
-      rgba(155, 0, 250, 1) 100%
-    );
-    color: #fff;
+      rgb(208, 179, 32) 0%,
+      rgb(130, 207, 48) 100%
+    ); */
+    color: black;
     text-transform: capitalize;
   }
   
@@ -99,14 +101,13 @@
     justify-content: space-between;
     align-items: center;
     margin: 4px auto;
-    color: #fff;
+    color: black;
     background: linear-gradient(
       90deg,
       rgba(255, 118, 20, 1) 0%,
       rgba(255, 84, 17, 1) 100%
     );
-  
-    padding: 16px;
+    padding: 8px;
     border-radius: 5px;
     width: 81%;
   }

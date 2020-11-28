@@ -11,7 +11,8 @@ const RecipeData = () => {
 					</Form.Label>
 					<Form.Control
 						type="text"
-						style={{ backgroundColor: "#8f8b8b", color: "white" }}
+						style={{ backgroundColor: "#949ab0", color: "white" }}
+						placeholder="Insert recipe title..."
 					/>
 				</Form.Group>
 				<Form.Group controlId="recipe_subtitle">
@@ -20,7 +21,8 @@ const RecipeData = () => {
 					</Form.Label>
 					<Form.Control
 						type="text"
-						style={{ backgroundColor: "#8f8b8b", color: "white" }}
+						style={{ backgroundColor: "#949ab0", color: "white" }}
+						placeholder="Insert recipe subtitle.."
 					/>
 				</Form.Group>
 				<Form.Group controlId="recipe_description">
@@ -30,7 +32,8 @@ const RecipeData = () => {
 					<Form.Control
 						as="textarea"
 						rows={3}
-						style={{ backgroundColor: "#8f8b8b", color: "white" }}
+						style={{ backgroundColor: "#949ab0", color: "white" }}
+						placeholder="Insert recipe description..."
 					/>
 				</Form.Group>
 			</Form>

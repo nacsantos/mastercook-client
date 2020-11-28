@@ -1,12 +1,11 @@
-import React, { useContext } from "react";
+import React from "react";
 import "./addIngredient.css";
 import TodoList from "./recipes_components/TodoList";
 
 function AddIngredient(props) {
-	const { label, labelPlaceholder } = props;
 	return (
 		<div className="todo-app">
-			<TodoList {...props}/>
+			<TodoList {...props} />
 		</div>
 	);
 }

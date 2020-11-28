@@ -5,7 +5,13 @@ import useRecipe from "./hooks/useRecipe";
 const Context = createContext();
 
 function RecipeProvider({ children }) {
-	const { values, labelValues, onChange } = useRecipe();
+	const {
+		values,
+		labelValues,
+		onChange,
+		setIngredients,
+		setSteps,
+	} = useRecipe();
 
 	return (
 		<Context.Provider
@@ -13,6 +19,8 @@ function RecipeProvider({ children }) {
 				values,
 				labelValues,
 				onChange,
+				setIngredients,
+				setSteps,
 			}}
 		>
 			{children}

@@ -4,13 +4,15 @@ import { useState } from "react";
 export default function useRecipe() {
 	const [values, setValues] = useState(initialState);
 	const [labelValues] = useState(initalStateLabels);
+	const [ingredients, setIngredients] = useState({});
+	const [steps, setSteps] = useState({});
 
 	function initalStateLabels() {
 		return {
 			label1: "Ingredients/Products",
-			label2: "Add ingredient/product..",
+			label2: "Add ingredient/product...",
 			label3: "Steps/Instructions",
-			label4: "Add step/instruction..",
+			label4: "Add step/instruction...",
 		};
 	}
 	function initialState() {
@@ -21,6 +23,8 @@ export default function useRecipe() {
 		const [value, name] = event.target;
 		setValues({ ...values, [name]: value });
 	}
+
+	
 	// function handleChangeValues(event) {
 	// 	const { value, name } = event.target;
 	// 	setValues({ ...values, [name]: value });
@@ -68,5 +72,5 @@ export default function useRecipe() {
 	// 	history.push("/");
 	// }
 
-	return { values, labelValues, onChange };
+	return { values, labelValues, onChange, setIngredients, setSteps };
 }
