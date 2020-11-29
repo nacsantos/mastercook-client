@@ -107,6 +107,10 @@ export default function useRecipe() {
 				},
 				(error) => {
 					console.log(error);
+					let messageError = error.response.data.error;
+					console.log(messageError);
+					setErrorMessage(messageError);
+					setErrorAddRecipe(true);
 				}
 			);
 	}
@@ -182,5 +186,8 @@ export default function useRecipe() {
 		sendData,
 		newData,
 		handleEditRecipeData,
+		errorMessage,
+		errorAddRecipe,
+		setErrorAddRecipe,
 	};
 }

@@ -24,6 +24,9 @@ function RecipeProvider({ children }) {
 		sendData,
 		newData,
 		handleEditRecipeData,
+		errorMessage,
+		errorAddRecipe,
+		setErrorAddRecipe,
 	} = useRecipe();
 
 	return (
@@ -47,6 +50,9 @@ function RecipeProvider({ children }) {
 				sendData,
 				newData,
 				handleEditRecipeData,
+				errorMessage,
+				errorAddRecipe,
+				setErrorAddRecipe,
 			}}
 		>
 			{children}
