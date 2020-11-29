@@ -51,12 +51,12 @@ const LoginForm = (props) => {
 					<FormContent>
 						<Form action="#">
 							<FormH1>Sign in to your account</FormH1>
-							<FormLabel htmlFor="for">Email</FormLabel>
+							<FormLabel htmlFor="for">Username</FormLabel>
 							<FormInput
-								type="email"
+								type="text"
 								required
-								id="email"
-								name="email"
+								id="user_username"
+								name="user_username"
 								onChange={onChange}
 								// value={values.user}
 							/>
@@ -64,15 +64,18 @@ const LoginForm = (props) => {
 							<FormInput
 								type="password"
 								required
-								id="password"
-								name="password"
+								id="user_password"
+								name="user_password"
 								onChange={onChange}
 								// value={values.password}
 							/>
 							<FormButton type="button" onClick={handleLogin}>
-								Continue
+								Sign In
 							</FormButton>
-							<Text>Forgot password</Text>
+                            <br/>
+                            <center>
+                                <a href=""><Text>Forgot password?</Text></a>
+                            </center>
 						</Form>
 					</FormContent>
 				</FormWrap>

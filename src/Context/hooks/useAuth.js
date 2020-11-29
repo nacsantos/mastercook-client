@@ -10,7 +10,7 @@ export default function useAuth() {
 	const [errorMessage, setErrorMessage] = useState("");
 
 	function initialState() {
-		return { email: "", password: "" };
+		return { user_username: "", user_password: "" };
 	}
 
 	function handleChangeValues(event) {
@@ -32,8 +32,8 @@ export default function useAuth() {
 	async function handleLogin() {
 		api
 			.post("/api/users/login", {
-				email: values.email,
-				password: values.password,
+				user_username: values.user_username,
+				user_password: values.user_password,
 			})
 			.then(
 				(response) => {
