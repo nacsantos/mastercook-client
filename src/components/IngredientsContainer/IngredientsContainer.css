@@ -1,0 +1,15 @@
+li {list-style-type: none;}
+
+/* Add some style to the list */
+
+.react-list-select {
+	margin-right: 0.5em;
+}
+
+.react-list-select--item.is-selected {
+	background: #f5cca7;
+}
+
+.react-list-select--item.is-disabled {
+	color: #afafaf;
+}

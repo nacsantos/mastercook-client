@@ -12,7 +12,3 @@
 .dark-button:hover{
   color: #FFFFFF;
 }
-
-dl, ol, ul {
-  margin-bottom: 0px !important;
-}

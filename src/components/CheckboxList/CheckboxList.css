@@ -1,0 +1,10 @@
+li {list-style-type: none;}
+
+.checkbox-ings-div{
+    display: flex;
+    align-items: center;
+}
+
+.checkbox-ings-input{
+    margin-right: 0.2rem;
+}

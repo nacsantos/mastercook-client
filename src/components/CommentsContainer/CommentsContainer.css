@@ -1,0 +1,68 @@
+.comments-container{
+    margin-bottom: 5rem;
+}
+
+.comments-row{
+    margin-bottom: 1rem;
+}
+
+.comments-title{
+    font-weight: 900;
+    font-family: 'Lato', sans-serif;
+}
+
+.comments-add-col{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.comments-add{
+    font-size: 2rem;
+}
+
+.comment-row{
+    padding: 1rem 0rem;
+}
+
+.comment-col{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-right: 1px solid lightgray;
+}
+
+.comments-username{
+    font-size: 0.8rem;
+    font-weight: 700;
+    margin-bottom: 0rem;
+}
+
+.comments-text{
+    font-size: 0.9rem;
+    margin-bottom: 0rem;
+}
+
+.comments-text-col{
+    display: flex;
+    align-items: center;
+}
+
+.comments-pic{
+    vertical-align: middle;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    /*background-image: url("/static/media/comments_profile_pic.jpg");*/
+    background-size: cover;
+    background-position: center center;
+}
+
+.comments-new-comment{
+    width: 100%;
+}
+
+.comments-submit-col{
+    justify-content: flex-end;
+    display: flex;
+}
