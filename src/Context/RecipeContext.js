@@ -23,6 +23,7 @@ function RecipeProvider({ children }) {
 		photos,
 		sendData,
 		newData,
+		handleEditRecipeData,
 	} = useRecipe();
 
 	return (
@@ -45,6 +46,7 @@ function RecipeProvider({ children }) {
 				photos,
 				sendData,
 				newData,
+				handleEditRecipeData,
 			}}
 		>
 			{children}

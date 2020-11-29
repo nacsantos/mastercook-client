@@ -1,6 +1,7 @@
 import { useState } from "react";
-//import api from "../../api";
-
+import api from "../../api";
+import history from "../../history";
+import jwt_decode from "jwt-decode";
 export default function useRecipe() {
 	const [labelValues] = useState(initalStateLabels);
 	const [ingredients, setIngredients] = useState([]);
@@ -8,6 +9,8 @@ export default function useRecipe() {
 	const [data, setData] = useState({});
 	const [photos, setPhotos] = useState([]);
 	const [newData, setNewData] = useState({});
+	const [errorAddRecipe, setErrorAddRecipe] = useState(false);
+	const [errorMessage, setErrorMessage] = useState("");
 
 	function initalStateLabels() {
 		return {
@@ -77,20 +80,40 @@ export default function useRecipe() {
 		setPhotos([...photos, files]);
 	}
 
-	function sendData() {
-		console.log("Press button to send data");
-		//const title = data.title;
-		console.log(data.title);
-		const aux = {
-			title: data.title,
-			subtitle: data.subtitle,
-			description: data.description,
-			ingredients: ingredients,
-			steps: steps,
-			photos: photos,
+	async function sendData() {
+		const token = localStorage.getItem("token");
+		const auxArray = token.split(" ");
+		const decoded = jwt_decode(auxArray[1]);
+		console.log(decoded);
+		const userData = {
+			owner_user_username: decoded.user_username,
+			owner_user_email: decoded.user_email,
 		};
-		setNewData(aux);
-		console.log(newData);
+		console.log(userData);
+		api
+			.post("/api/recipes/create", {
+				recipe_title: data.title,
+				recipe_subtitle: data.subtitle,
+				recipe_description: data.description,
+				recipe_ingredients: ingredients,
+				recipe_steps_instructions: steps,
+				recipe_photos: photos,
+				recipe_owner_user: userData,
+			})
+			.then(
+				(response) => {
+					console.log(response);
+					history.push("/feed");
+				},
+				(error) => {
+					console.log(error);
+				}
+			);
+	}
+
+	function handleEditRecipeData(event) {
+		const { value, name } = event.target;
+		setData({ ...data, [name]: value });
 	}
 
 	// function handleChangeValues(event) {
@@ -158,5 +181,6 @@ export default function useRecipe() {
 		photos,
 		sendData,
 		newData,
+		handleEditRecipeData,
 	};
 }

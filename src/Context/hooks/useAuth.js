@@ -22,7 +22,7 @@ export default function useAuth() {
 		const token = localStorage.getItem("token");
 
 		if (token) {
-			console.log("TOKEN", token);
+			//console.log("TOKEN", token);
 			api.defaults.headers.Authorization = `Bearer ${JSON.parse(token)}`;
 			setAuthenticated(true);
 		}
@@ -37,7 +37,7 @@ export default function useAuth() {
 			})
 			.then(
 				(response) => {
-					console.log(response);
+					//console.log(response);
 					let token = response.data.token;
 					localStorage.setItem("token", JSON.stringify(token));
 					api.defaults.headers.Authorization = `Bearer ${token}`;

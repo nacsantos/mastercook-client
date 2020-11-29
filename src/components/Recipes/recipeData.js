@@ -7,24 +7,16 @@ function initialState() {
 
 const RecipeData = () => {
 	const [recipeData, setRecipeData] = useState(initialState);
-	const { setData, sendData } = useContext(Context);
+	const { setData, sendData, handleEditRecipeData } = useContext(Context);
 	//const { onChangeRecipeData } = useContext(Context);
 
 	function handleChange(event) {
 		const { value, name } = event.target;
 		setRecipeData({ ...recipeData, [name]: value });
+		handleEditRecipeData(event);
 	}
 
 	function handleSubmit() {
-		setData(recipeData);
-		sendToContext();
-		//setData(recipeData).then(()=>{sendData();
-		//const messageId = await sendDataApi(message)
-		//const details = await getDetails(messageId)
-		//return details
-	}
-
-	function sendToContext() {
 		sendData();
 	}
 

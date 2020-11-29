@@ -7,7 +7,7 @@ export const CreateRecipePage = () => {
 	return (
 		<>
 			<Navbar3 />
-			<Banner />
+			<Banner recipeName="Add Recipe" />
 			<RecipeForm />
 		</>
 	);
