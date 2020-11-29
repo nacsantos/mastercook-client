@@ -6,21 +6,45 @@ const Context = createContext();
 
 function RecipeProvider({ children }) {
 	const {
-		values,
 		labelValues,
-		onChange,
 		setIngredients,
 		setSteps,
+		addIngredient,
+		ingredients,
+		addStep,
+		steps,
+		updateIngredient,
+		updateStep,
+		removeIngredient,
+		removeStep,
+		data,
+		setData,
+		handleDropImage,
+		photos,
+		sendData,
+		newData,
 	} = useRecipe();
 
 	return (
 		<Context.Provider
 			value={{
-				values,
 				labelValues,
-				onChange,
 				setIngredients,
 				setSteps,
+				addIngredient,
+				ingredients,
+				addStep,
+				steps,
+				updateIngredient,
+				updateStep,
+				removeIngredient,
+				removeStep,
+				data,
+				setData,
+				handleDropImage,
+				photos,
+				sendData,
+				newData,
 			}}
 		>
 			{children}

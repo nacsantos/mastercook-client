@@ -3,6 +3,8 @@ import { Row } from "react-bootstrap";
 import AddIngredient from "./addIngredient";
 import { Context } from "../../Context/RecipeContext";
 import AddStep from "./addSteps";
+import ImageContainer from "./imageContainer";
+import "./RecipeElements.css";
 
 const RecipeData2 = () => {
 	const { labelValues } = useContext(Context);
@@ -19,6 +21,9 @@ const RecipeData2 = () => {
 					label={labelValues.label3}
 					labelPlaceholder={labelValues.label4}
 				/>
+			</Row>
+			<Row id="imageContainer">
+				<ImageContainer />
 			</Row>
 		</>
 	);

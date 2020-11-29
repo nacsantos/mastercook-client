@@ -1,11 +1,37 @@
-import React from "react";
-import { Form } from "react-bootstrap";
+import React, { useContext, useState } from "react";
+import { Form, Button } from "react-bootstrap";
+import { Context } from "../../Context/RecipeContext";
+function initialState() {
+	return { title: "", subtitle: "", description: "" };
+}
 
 const RecipeData = () => {
+	const [recipeData, setRecipeData] = useState(initialState);
+	const { setData, sendData } = useContext(Context);
+	//const { onChangeRecipeData } = useContext(Context);
+
+	function handleChange(event) {
+		const { value, name } = event.target;
+		setRecipeData({ ...recipeData, [name]: value });
+	}
+
+	function handleSubmit() {
+		setData(recipeData);
+		sendToContext();
+		//setData(recipeData).then(()=>{sendData();
+		//const messageId = await sendDataApi(message)
+		//const details = await getDetails(messageId)
+		//return details
+	}
+
+	function sendToContext() {
+		sendData();
+	}
+
 	return (
 		<>
 			<Form>
-				<Form.Group controlId="recipe_title">
+				<Form.Group controlId="title">
 					<Form.Label>
 						<strong>Title</strong>
 					</Form.Label>
@@ -13,9 +39,12 @@ const RecipeData = () => {
 						type="text"
 						style={{ backgroundColor: "#949ab0", color: "white" }}
 						placeholder="Insert recipe title..."
+						onChange={handleChange}
+						// id="title"
+						name="title"
 					/>
 				</Form.Group>
-				<Form.Group controlId="recipe_subtitle">
+				<Form.Group controlId="subtitle">
 					<Form.Label>
 						<strong>Subtitle</strong>
 					</Form.Label>
@@ -23,9 +52,13 @@ const RecipeData = () => {
 						type="text"
 						style={{ backgroundColor: "#949ab0", color: "white" }}
 						placeholder="Insert recipe subtitle.."
+						//onChange={handleChange}
+						// id="subtitle"
+						name="subtitle"
+						onChange={handleChange}
 					/>
 				</Form.Group>
-				<Form.Group controlId="recipe_description">
+				<Form.Group controlId="description">
 					<Form.Label>
 						<strong>Description</strong>
 					</Form.Label>
@@ -34,9 +67,21 @@ const RecipeData = () => {
 						rows={3}
 						style={{ backgroundColor: "#949ab0", color: "white" }}
 						placeholder="Insert recipe description..."
+						//onChange={handleChange}
+						// id="description"
+						name="description"
+						onChange={handleChange}
 					/>
 				</Form.Group>
 			</Form>
+			<Button
+				variant="outline-secondary"
+				size="lg"
+				block
+				onClick={handleSubmit}
+			>
+				Send Recipe
+			</Button>
 		</>
 	);
 };

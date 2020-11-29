@@ -9,7 +9,7 @@ import "./RecipeElements.css";
 const RecipeForm = () => {
 	return (
 		<RecipeProvider>
-			<div class="container">
+			<div className="container">
 				<Row>
 					<Col id="container1">
 						<RecipeData />

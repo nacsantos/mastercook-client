@@ -1,11 +1,11 @@
 import React from "react";
 import "./addIngredient.css";
-import TodoList from "./recipes_components/TodoList";
+import TodoList2 from "./recipes_components/TodoList2";
 
 function AddStep(props) {
 	return (
 		<div className="todo-app">
-			<TodoList {...props} />
+			<TodoList2 {...props} />
 		</div>
 	);
 }
