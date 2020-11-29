@@ -170,6 +170,84 @@ export const FormSelectYear = styled.select`
   }
 `;
 
+export const FormRadioWrapper = styled.div`
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: baseline;
+`;
+
+export const RadioMark = styled.span`
+  display: inline-block;
+  position: relative;
+  border: 1px solid #777777;
+  width: 14px;
+  height: 14px;
+  left: 0px;
+  border-radius: 50%;
+  margin-right: 5px;
+  vertical-align: middle;
+  &::after {
+    content: "";
+    display: block;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background-color: #03a9f4;
+    opacity: 0;
+    left: 50%;
+    top: 50%;
+    position: absolute;
+    transition: all 110ms;
+  }
+`;
+
+export const RadioInput = styled.input`
+  position: absolute;
+  visibility: hidden;
+  display: none;
+  &:checked + ${RadioMark} {
+    &::after {
+      width: 10px;
+      height: 10px;
+      opacity: 1;
+      left: 8%;
+      top: 10%;
+    }
+  }
+`;
+
+export const RadioLabel = styled.label`
+  display: flex;
+  cursor: pointer;
+  color: #FFFFFF;
+  font-size: 14px;
+  padding: 5px 10px 5px 0;
+  position: relative;
+  ${props =>
+    props.disabled &&
+    `
+        cursor: not-allowed;
+        opacity: 0.4;
+    `}
+`;
+
+export const RadioText1 = styled.span`
+    margin-top: -5%;
+    display: flex;
+	color: #fff;
+	font-size: 14px;
+`;
+
+export const RadioText2 = styled.span`
+    margin-top: -2.5%;
+    display: flex;
+	color: #fff;
+	font-size: 14px;
+`;
+
 export const Text = styled.span`
 	text-align: center;
 	margin-top: 24px;

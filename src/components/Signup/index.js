@@ -18,7 +18,13 @@ import {
 	Text,
     TextSlashDate,
     ContainerSelectDate,
-    SelectDateStyles
+    SelectDateStyles,
+    FormRadioWrapper,
+    RadioMark,
+    RadioInput,
+    RadioLabel,
+    RadioText1,
+    RadioText2,
 } from "./SignupElements";
 import api from "../../api";
 class SignUp extends Component {
@@ -45,6 +51,7 @@ class SignUp extends Component {
 
 	handleSubmit = async (event) => {
 		event.preventDefault();
+        
 		api
 			.post("/api/users/register", {
                 user_username: this.state.user_username,
@@ -54,7 +61,7 @@ class SignUp extends Component {
                 user_password_1: this.state.user_password_1,
                 user_password_2: this.state.user_password_2,
                 user_gender: this.state.user_gender,
-                user_birthday: new Date(this.state.user_birthday_year + "/" + this.state.user_birthday_month + "/" + this.state.user_birthday_day),
+                user_birthday: String(this.state.user_birthday_year + "/" + this.state.user_birthday_month + "/" + this.state.user_birthday_day),
                 user_profile_photo: "",
                 user_role: "User",
                 user_register_timestamp: new Date(),
@@ -91,9 +98,17 @@ class SignUp extends Component {
 		const target = event.target;
 		const value = target.value;
 		const name = target.name;
-		this.setState({
-			[name]: value,
-		});
+        
+        if(name == "user_gender") {
+            this.setState({
+                [name]: value,
+            });  
+        }
+        else {
+            this.setState({
+                [name]: value,
+            });   
+        }
 	}
 
 	render() {
@@ -104,7 +119,7 @@ class SignUp extends Component {
 						<Icon to="/">MasterCook</Icon>
 						<FormContent>
 							<Form onSubmit={this.handleSubmit}>
-								<FormH1>Sign in to your account</FormH1>
+								<FormH1>Sign up to your account</FormH1>
 								<FormLabel htmlFor="for">Username</FormLabel>
 								<FormInput
 									name="user_username"
@@ -125,7 +140,7 @@ class SignUp extends Component {
 								<FormInput
 									name="user_first_name"
 									value={this.state.user_first_name}
-									type="email"
+									type="text"
 									required
 									onChange={this.handleInputChange}
 								/>
@@ -133,29 +148,65 @@ class SignUp extends Component {
 								<FormInput
 									name="user_last_name"
 									value={this.state.user_last_name}
-									type="email"
+									type="text"
 									required
 									onChange={this.handleInputChange}
 								/>
 								<FormLabel htmlFor="for">Password</FormLabel>
 								<FormInput
-									name="password"
-									value={this.state.password}
+									name="user_password_1"
+									value={this.state.user_password_1}
 									type="password"
 									required
 									onChange={this.handleInputChange}
 								/>
 								<FormLabel htmlFor="for">Repeat Password</FormLabel>
 								<FormInput
-									name="password2"
-									value={this.state.password2}
+									name="user_password_2"
+									value={this.state.user_password_2}
 									type="password"
 									required
 									onChange={this.handleInputChange}
 								/>
+								<FormLabel htmlFor="for">Gender</FormLabel>
+                                <FormRadioWrapper>
+                                    <RadioLabel>
+                                        <RadioInput 
+                                            id="male"
+                                            name="user_gender"
+                                            value="Male"
+                                            type="radio"
+									        onChange={this.handleInputChange}
+                                        />
+                                        <RadioMark />
+                                        <RadioText1>Male</RadioText1>
+                                    </RadioLabel>
+                                    <RadioLabel>
+                                        <RadioInput
+                                            id="female"
+                                            name="user_gender"
+                                            value="Female"
+                                            type="radio"
+									        onChange={this.handleInputChange}
+                                        />                  
+                                        <RadioMark />
+                                        <RadioText1>Female</RadioText1>
+                                    </RadioLabel>
+                                    <RadioLabel>
+                                        <RadioInput
+                                            id="prefer_not_to_say"
+                                            name="user_gender"
+                                            value="Prefer not to say"
+                                            type="radio"
+									        onChange={this.handleInputChange}
+                                        />                  
+                                        <RadioMark />
+                                        <RadioText2>I prefer not to say</RadioText2>
+                                    </RadioLabel>
+                                </FormRadioWrapper>
                                 <FormLabel htmlFor="for">Birthday</FormLabel>
                                 <ContainerSelectDate>
-                                    <FormSelectDay name="birthday_day"
+                                    <FormSelectDay name="user_birthday_day"
                                         styles={SelectDateStyles}
                                         value={this.state.user_birthday_day}
                                         type="select"
@@ -195,7 +246,7 @@ class SignUp extends Component {
                                       <option value="31">31</option>
                                     </FormSelectDay>
                                     <TextSlashDate>/</TextSlashDate>
-                                    <FormSelectMonth name="birthday_month"
+                                    <FormSelectMonth name="user_birthday_month"
                                         value={this.state.user_birthday_month}
                                         styles={SelectDateStyles}
                                         type="select"
@@ -216,7 +267,7 @@ class SignUp extends Component {
                                       <option value="12">December</option>
                                     </FormSelectMonth>
                                     <TextSlashDate>/</TextSlashDate>
-                                    <FormSelectYear name="birthday_year"
+                                    <FormSelectYear name="user_birthday_year"
                                         value={this.state.user_birthday_year}
                                         styles={SelectDateStyles}
                                         type="select"
@@ -347,7 +398,7 @@ class SignUp extends Component {
                                     </FormSelectYear>
                                 </ContainerSelectDate>
                                 <br />
-                                <FormButton type="submit">Sign In</FormButton>    
+                                <FormButton type="submit">Sign Up</FormButton>    
                                 <br />
                                 <center>
                                     <a href=""><Text>Forgot password?</Text></a>
