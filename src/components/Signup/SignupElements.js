@@ -97,9 +97,88 @@ export const FormButton = styled.button`
 	cursor: pointer;
 `;
 
+export const ContainerSelectDate = styled('div')`
+   width: 100%;
+   height: 100%;
+   display: flex;
+   flex-flow: row wrap;
+   justify-content: space-around;
+   align-items: baseline;
+ `;
+
+export const SelectDateStyles = {
+  container: base => ({
+    ...base,
+    flex: 1
+  })
+};
+
+export const FormSelectDay = styled.select`
+    padding: 10px 10px;
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 4px;
+    width: 25%;
+    padding-left: 5px;
+    font-size: 14px;
+    
+  option {
+    color: black;
+    background: white;
+    display: flex;
+    white-space: pre;
+    min-height: 20px;
+    padding: 0px 2px 1px;
+  }
+`;
+
+export const FormSelectMonth = styled.select`
+    padding: 10px 10px;
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 4px;
+    width: 40%;
+    padding-left: 5px;
+    font-size: 14px;
+    
+  option {
+    color: black;
+    background: white;
+    display: flex;
+    white-space: pre;
+    min-height: 20px;
+    padding: 0px 2px 1px;
+  }
+`;
+
+export const FormSelectYear = styled.select`
+    padding: 10px 10px;
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 4px;
+    width: 25%;
+    padding-left: 5px;
+    font-size: 14px;
+    
+  option {
+    color: black;
+    background: white;
+    display: flex;
+    white-space: pre;
+    min-height: 20px;
+    padding: 0px 2px 1px;
+  }
+`;
+
 export const Text = styled.span`
 	text-align: center;
 	margin-top: 24px;
 	color: #fff;
 	font-size: 14px;
+`;
+
+export const TextSlashDate = styled.span`
+	text-align: center;
+	color: #fff;
+	font-size: 20px;
 `;
