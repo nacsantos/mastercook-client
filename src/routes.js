@@ -7,6 +7,7 @@ import FeedPage from "./pages/feed";
 import Home from "./pages";
 import { CreateRecipePage } from "./pages/createRecipe";
 import { RecipePage } from "./pages/recipe";
+import { ComparePricesPage } from "./pages/comparePrices";
 import MDSpinner from "react-md-spinner";
 
 function CustomRoute({ isPrivate, ...rest }) {
@@ -16,9 +17,9 @@ function CustomRoute({ isPrivate, ...rest }) {
 		return <MDSpinner />;
 	}
 
-	/*if (isPrivate && !authenticated) {
+	if (isPrivate && !authenticated) {
 		return <Redirect to="/" />;
-	}*/
+	}
 
 	return <Route {...rest} />;
 }
@@ -30,14 +31,9 @@ export default function Routes() {
 			<CustomRoute exact path="/signin" component={SigninPage} />
 			<CustomRoute exact path="/signup" component={SignupPage} />
 			<CustomRoute isPrivate exact path="/feed" component={FeedPage} />
-			<CustomRoute isPrivate exact path="/recipe" component={RecipePage} />
-			<CustomRoute
-				isPrivate
-				exact
-				path="/recipes/add"
-				component={CreateRecipePage}
-			/>
-			{/* <CustomRoute isPrivate exact path="/recipe" component={RecipePage} /> */}
+			<CustomRoute isPrivate exact path="/recipes/add" component={CreateRecipePage} />
+			<CustomRoute isPrivate exact path="/recipe/x" component={RecipePage} />
+			<CustomRoute isPrivate exact path="/compareprice" component={ComparePricesPage} />
 		</Switch>
 	);
 }
