@@ -7,6 +7,7 @@ import { RecipeContainer } from "../components/RecipeContainer";
 import { CommentsContainer } from "../components/CommentsContainer";
 import { FollowRecipe } from "../components/FollowRecipe";
 import { Context } from "../Context/RecipeContext";
+import MDSpinner from "react-md-spinner";
 
 let recipeData = {
 	title: "Greek Cod",
@@ -33,7 +34,7 @@ let recipeData = {
 export const RecipePage = () => {
 	const [followRecipe, setFollowRecipe] = useState(false);
 	const [progress, setProgress] = useState(0);
-	const { atualRecipe } = useContext(Context);
+	const { atualRecipe, loadingAtualRecipe } = useContext(Context);
 
 	const updateGrandparentHandle = () => {
 		setFollowRecipe(true);
@@ -43,8 +44,19 @@ export const RecipePage = () => {
 		setProgress(x);
 	};
 
+	if (loadingAtualRecipe) {
+		return <MDSpinner id="feedSpinner" size={100} />;
+	}
+
 	return (
 		<>
+			<div>
+				<h1>{atualRecipe.recipe_title}</h1>
+			</div>
+
+			{/* <div>
+				<h1>(atualRecipe.recipe_title || "")</h1>
+			</div>
 			{!followRecipe ? (
 				<>
 					<Navbar3 />
@@ -70,7 +82,7 @@ export const RecipePage = () => {
 						inst={recipeData.instructions}
 					/>
 				</>
-			)}
+			)} */}
 		</>
 	);
 };

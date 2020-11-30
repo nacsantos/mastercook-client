@@ -15,6 +15,7 @@ export default function useRecipe() {
 	const [loading, setLoading] = useState(false);
 	const [error, setError] = useState({});
 	const [atualRecipe, setAtualRecipe] = useState({});
+	const [loadingAtualRecipe, setLoadingAtualRecipe] = useState(false);
 
 	useEffect(() => {
 		let ignore = false;
@@ -144,10 +145,29 @@ export default function useRecipe() {
 		const aux = recipes.data;
 		setAllRecipes(aux);
 	}
-	function getRecipe(event) {
-		//retirar o id botao
-		//iterar allrecipes com chave do botao
-		//history.push("/recipe/{chave}"
+	async function handleGetRecipe(event) {
+		const handleAtualRecipe = async (id) => {
+			try {
+				setLoadingAtualRecipe(true);
+				const aux = allRecipes[id];
+				setAtualRecipe(aux);
+			} catch (err) {
+				console.log(error);
+			}
+			setLoadingAtualRecipe(true);
+		};
+		handleAtualRecipe(event.target.id);
+		//setLoadingAtualRecipe(true);
+		//const aux = allRecipes[event.target.id];
+		//const a = await setAtual(event.target.id);
+		//console.log(a);
+		history.push("/recipe");
+		//setLoadingAtualRecipe(false);
+	}
+
+	function setAtual(id) {
+		const aux = allRecipes[id];
+		setAtualRecipe(aux);
 	}
 
 	return {
@@ -175,5 +195,9 @@ export default function useRecipe() {
 		getAllRecipes,
 		allRecipes,
 		loading,
+		handleGetRecipe,
+		setLoadingAtualRecipe,
+		atualRecipe,
+		loadingAtualRecipe,
 	};
 }
