@@ -15,7 +15,8 @@ export default function useRecipe() {
 	const [loading, setLoading] = useState(false);
 	const [error, setError] = useState({});
 	const [atualRecipe, setAtualRecipe] = useState({});
-	const [loadingAtualRecipe, setLoadingAtualRecipe] = useState(false);
+	const [loadingAtualRecipe, setLoadingAtualRecipe] = useState(true);
+	const [counter, setCounter] = useState(null);
 
 	useEffect(() => {
 		let ignore = false;
@@ -145,29 +146,69 @@ export default function useRecipe() {
 		const aux = recipes.data;
 		setAllRecipes(aux);
 	}
-	async function handleGetRecipe(event) {
-		const handleAtualRecipe = async (id) => {
-			try {
-				setLoadingAtualRecipe(true);
-				const aux = allRecipes[id];
-				setAtualRecipe(aux);
-			} catch (err) {
-				console.log(error);
-			}
-			setLoadingAtualRecipe(true);
+	function handleGetRecipe(event) {
+		setCounter(event.target.id);
+		// console.log("Entrou no handle");
+		// console.log("Id do evento", event.target.id);
+
+		const aux = allRecipes[event.target.id];
+		const auxJson = {
+			recipe_title: aux.recipe_title,
+			recipe_subtitle: aux.recipe_subtitle,
+			recipe_description: aux.recipe_description,
+			recipe_ingredients: aux.recipe_ingredients,
+			recipe_steps_instructions: aux.recipe_steps_instructions,
+			recipe_observations: aux.recipe_observations,
+			recipe_kcal_per_person: aux.recipe_kcal_per_person,
+			recipe_base_dose: aux.recipe_base_dose,
+			recipe_categories: aux.recipe_categories,
+			recipe_cuisine: aux.recipe_cuisine,
+			recipe_tags: aux.recipe_tags,
+			recipe_photos: aux.recipe_photos,
+			recipe_timestamp: aux.recipe_timestamp,
+			recipe_owner_user: aux.recipe_owner_user,
+			recipe_reviews: aux.recipe_reviews,
+			recipe_comments: aux.recipe_comments,
 		};
-		handleAtualRecipe(event.target.id);
-		//setLoadingAtualRecipe(true);
-		//const aux = allRecipes[event.target.id];
-		//const a = await setAtual(event.target.id);
-		//console.log(a);
+		console.log("aux", aux);
+		console.log("aux2", auxJson);
+		//var testObject ={name:"test", time:"Date 2017-02-03T08:38:04.449Z"};
+		setAtualRecipe(aux);
+		localStorage.setItem("atual_recipe", JSON.stringify(auxJson));
 		history.push("/recipe");
+		// history.push({
+		// 	pathname: "/recipe",
+		// 	state: {
+		// 		recipe: aux,
+		// 	},
+		// });
+		// console.log("Entrou no handleGetRecipe");
+		// const handleAtualRecipe = async (id) => {
+		// 	try {
+		// 		//setLoadingAtualRecipe(true);
+		// 		console.log("Vamos ver o estado do loading 2", loadingAtualRecipe);
+		// 		const aux = allRecipes[id];
+		// 		console.log("aux", aux);
+		// 		setAtualRecipe(aux);
+		// 	} catch (err) {
+		// 		console.log(error);
+		// 	}
+		// 	setLoadingAtualRecipe(false);
+		// };
+		// console.log("Vai entrar no handleAtualRecipe", event.target.id);
+		// console.log("Vamos ver o estado do loading 1", loadingAtualRecipe);
+		// handleAtualRecipe(event.target.id);
+		// console.log("Vamos ver o estado do loading 3", loadingAtualRecipe);
+		// //setLoadingAtualRecipe(true);
+		// //const aux = allRecipes[event.target.id];
+		// //const a = await setAtual(event.target.id);
+		// //console.log(a);
+
 		//setLoadingAtualRecipe(false);
 	}
 
-	function setAtual(id) {
-		const aux = allRecipes[id];
-		setAtualRecipe(aux);
+	function getAtual() {
+		return atualRecipe;
 	}
 
 	return {
@@ -199,5 +240,6 @@ export default function useRecipe() {
 		setLoadingAtualRecipe,
 		atualRecipe,
 		loadingAtualRecipe,
+		getAtual,
 	};
 }

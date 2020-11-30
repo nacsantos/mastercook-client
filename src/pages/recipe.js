@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import Banner from "../components/Banner";
 import { Progress } from "antd";
 
@@ -34,7 +34,18 @@ let recipeData = {
 export const RecipePage = () => {
 	const [followRecipe, setFollowRecipe] = useState(false);
 	const [progress, setProgress] = useState(0);
-	const { atualRecipe, loadingAtualRecipe } = useContext(Context);
+	const [loading, setLoading] = useState(false);
+	const aux = localStorage.getItem("atual_recipe");
+	var atual_recipe = JSON.parse(aux);
+
+	useEffect(() => {
+		if (!atual_recipe) {
+			console.log(atual_recipe);
+			setLoading(true);
+		} else {
+			setLoading(false);
+		}
+	}, []);
 
 	const updateGrandparentHandle = () => {
 		setFollowRecipe(true);
@@ -44,14 +55,42 @@ export const RecipePage = () => {
 		setProgress(x);
 	};
 
-	if (loadingAtualRecipe) {
+	if (loading) {
 		return <MDSpinner id="feedSpinner" size={100} />;
 	}
 
 	return (
 		<>
 			<div>
-				<h1>{atualRecipe.recipe_title}</h1>
+				{/* {JSON.stringify(atual_recipe2.recipe_title)} */}
+				<h1>
+					<strong>Title: </strong>
+					{atual_recipe.recipe_title}
+				</h1>
+				<h2>
+					<strong>Subtitle: </strong>
+					{atual_recipe.recipe_subtitle}
+				</h2>
+				<h3>
+					<strong>Description: </strong>
+					{atual_recipe.recipe_description}
+				</h3>
+				<h3>
+					<strong>Ingredients: </strong>
+					{atual_recipe.recipe_ingredients.map((ingredient, index) => (
+						<h4 key={index}>
+							{index}-{ingredient}
+						</h4>
+					))}
+				</h3>
+				<h3>
+					<strong>Steps: </strong>
+					{atual_recipe.recipe_ingredients.reverse().map((step, index) => (
+						<h4 key={index}>
+							{index}-{step}
+						</h4>
+					))}
+				</h3>
 			</div>
 
 			{/* <div>
