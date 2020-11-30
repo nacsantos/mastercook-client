@@ -7,6 +7,7 @@ import FeedPage from "./pages/feed";
 import Home from "./pages";
 import { CreateRecipePage } from "./pages/createRecipe";
 import { RecipePage } from "./pages/recipe";
+import { ComparePricesPage } from "./pages/comparePrices";
 
 function CustomRoute({ isPrivate, ...rest }) {
 	const { loading, authenticated } = useContext(Context);
@@ -15,9 +16,9 @@ function CustomRoute({ isPrivate, ...rest }) {
 		return <h1>Loading...</h1>;
 	}
 
-	/*if (isPrivate && !authenticated) {
+	if (isPrivate && !authenticated) {
 		return <Redirect to="/" />;
-	}*/
+	}
 
 	return <Route {...rest} />;
 }
@@ -31,6 +32,7 @@ export default function Routes() {
 			<CustomRoute isPrivate exact path="/feed" component={FeedPage} />
 			<CustomRoute isPrivate exact path="/recipes/add" component={CreateRecipePage} />
 			<CustomRoute isPrivate exact path="/recipe/x" component={RecipePage} />
+			<CustomRoute isPrivate exact path="/compareprice" component={ComparePricesPage} />
 		</Switch>
 	);
 }
