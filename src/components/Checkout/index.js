@@ -1,19 +1,19 @@
 import React, { useContext } from "react";
-import { RecipeProvider } from "../../Context/CheckoutContext";
+import { CheckoutProvider } from "../../Context/CheckoutContext";
 
 import { Row, Col } from "react-bootstrap";
 import CheckoutData1 from "./CheckoutData1";
 import CheckoutData2 from "./CheckoutData2";
-import "./RecipeElements.css";
+import "./CheckoutElements.css";
 import { Context } from "../../Context/CheckoutContext";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const CheckoutForm = () => {
 	return (
-		<RecipeProvider>
+		<CheckoutProvider>
 			<CheckoutContainer />
-		</RecipeProvider>
+		</CheckoutProvider>
 	);
 };
 

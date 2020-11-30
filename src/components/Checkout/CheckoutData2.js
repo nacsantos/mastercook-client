@@ -11,6 +11,7 @@ import {
 	FormContent,
 	Form,
 	FormH1,
+    H5,
 	FormLabel,
 	FormInputFull,
 	FormInputBig,
@@ -33,7 +34,7 @@ import {
     RadioLabel,
     RadioText1,
     RadioText2,
-} from "./RecipeElements";
+} from "./CheckoutElements";
 import api from "../../api";
 class DeliveryAndPayment extends Component {
 	constructor(props) {
@@ -126,7 +127,7 @@ class DeliveryAndPayment extends Component {
         
         return (
 		<>
-            <h4>Delivery and Payment Details</h4>
+            <H5>Delivery and Payment Details</H5>
             <hr />
             <Form onSubmit={this.handleSubmit}>
                 <FormLabel htmlFor="for">Full Name</FormLabel>
@@ -333,7 +334,7 @@ class DeliveryAndPayment extends Component {
                             required
                             onChange={this.handleInputChange}
                         />
-                    <hr/>
+                        <hr/>
                 </CreditDebitCardSubform>
                 <br />
                 

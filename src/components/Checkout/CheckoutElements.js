@@ -53,6 +53,10 @@ export const OrderDetails = styled.div`
 	}
 `;
 
+export const H5 = styled.h5`
+	color: #fff;
+`;
+
 export const OrderDetailsH6 = styled.h6`
 	margin-bottom: 20px;
 	color: #fff;
@@ -316,13 +320,3 @@ export const TextSeparator = styled.span`
 	color: #fff;
 	font-size: 20px;
 `;
-
-export function createCSS() {
-  let str = '';
-
-for (let i = 0; i < 9; i++) {
-  str = str + i;
-}
-
-console.log(str);
-};

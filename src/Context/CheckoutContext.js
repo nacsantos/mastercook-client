@@ -4,7 +4,7 @@ import useCheckout from "./hooks/useCheckout";
 
 const Context = createContext();
 
-function RecipeProvider({ children }) {
+function CheckoutProvider({ children }) {
 	const {
 		labelValues,
 		setIngredients,
@@ -60,4 +60,4 @@ function RecipeProvider({ children }) {
 	);
 }
 
-export { Context, RecipeProvider };
+export { Context, CheckoutProvider };

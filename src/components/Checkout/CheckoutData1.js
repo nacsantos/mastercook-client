@@ -5,8 +5,8 @@ import { Row, Col } from "react-bootstrap";
 import { Context } from "../../Context/CheckoutContext";
 
 import {
-	OrderDetails, OrderDetailsH6, ButtonMedium
-} from "./RecipeElements";
+	OrderDetails, OrderDetailsH6, ButtonMedium, H5
+} from "./CheckoutElements";
 
 import api from "../../api";
 import { withRouter } from "react-router-dom";
@@ -56,7 +56,7 @@ class Order extends Component {
         
         return (
             <>
-                <h4>Order Details</h4>
+                <H5>Order Details</H5>
                 <hr />
                 <OrderDetails>
                     <Row>
