@@ -10,6 +10,7 @@ export const FollowRecipe = (props) => {
     const [timer, setTimer] = useState("");
     const [started, setStarted] = useState(false);
     const [interval, setNewInterval] = useState("");
+    console.log("ddsd",props)
 
     useEffect(() => {    
         // Update the document title using the browser API
@@ -107,7 +108,7 @@ export const FollowRecipe = (props) => {
                 <Col className="recipe-title-col followrecipe-inst-col">
                     <div>
                         {
-                            props.inst[chosenInstruction].includes("Timer:") ?
+                            props.inst[chosenInstruction].text.includes("Timer:") ?
                             <>
                                 {
                                     !started ?
@@ -121,7 +122,7 @@ export const FollowRecipe = (props) => {
                                     </>
                                 }
                             </> :
-                            props.inst[chosenInstruction]
+                            props.inst[chosenInstruction].text
                         }
                     </div>
                 </Col>

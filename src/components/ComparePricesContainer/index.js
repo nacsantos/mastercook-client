@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import { AiOutlineMinusCircle, AiOutlinePlusCircle } from "react-icons/ai";
 
@@ -21,6 +21,7 @@ const supermarketData = [
 ]
 
 export const ComparePricesContainer = (props) => {
+    const [pricesToShow, setPricesToShow] = useState([]);
 
     const DecreaseInput = (el) => {
         let ariaL = el.currentTarget.getAttribute("aria-label");
@@ -32,25 +33,25 @@ export const ComparePricesContainer = (props) => {
         document.getElementById(ariaL).stepUp();
     }
 
-    const ingItems = props.ings.map((element) => {
+    const ingItems = props.ings.map((element, index) => {
         return (
             <Container className="compareprices-elem-container">
                 <Row>
-                    <Col className="compareprices-elem-col" lg="2">
-                        {/*<img src={} />*/}
-                        <li key={element.toString()} className="recipe-ingredient">{element}</li>
+                    <Col className="compareprices-elem-col align-left" lg="3">
+                        <li key={element.text} className="recipe-ingredient">{element.text}</li>
                     </Col>
-                    <Col className="compareprices-elem-col" lg="3">
-                        <li key={element.toString()} className="recipe-ingredient">{element}</li>
-                    </Col>
-                    <Col className="compareprices-elem-col" lg="7">
+                    <Col className="compareprices-elem-col" lg="9">
                         <Container fluid>
                             <Row>
                                 <Col className="compareprices-elem-col" lg="3">
                                     <Container fluid>
                                         <Row>
                                             <Col className="compareprices-elem-col">
-                                                <span>PRICE</span>
+                                                <span 
+                                                    id={index + "-0-price"}
+                                                >
+                                                    {(Math.random() * 10).toFixed(2)}
+                                                </span>
                                             </Col>
                                         </Row>
                                         <Row>
@@ -58,17 +59,17 @@ export const ComparePricesContainer = (props) => {
                                                 <AiOutlineMinusCircle
                                                     className="compareprices-elem-icon"
                                                     onClick={DecreaseInput}
-                                                    aria-label={element.toString() + "-" + supermarketData[0].name}
+                                                    aria-label={index + "-0"}
                                                 />
                                                 <input 
                                                     className="compareprices-elem-input" 
-                                                    id={element.toString() + "-" + supermarketData[0].name} 
+                                                    id={index + "-0"} 
                                                     type="number" min="0" defaultValue="0"
                                                 />
                                                 <AiOutlinePlusCircle
                                                     className="compareprices-elem-icon"
                                                     onClick={IncreaseInput}
-                                                    aria-label={element.toString() + "-" + supermarketData[0].name}
+                                                    aria-label={index + "-0"}
                                                 />
                                             </Col>
                                         </Row>
@@ -78,7 +79,11 @@ export const ComparePricesContainer = (props) => {
                                     <Container fluid>
                                         <Row>
                                             <Col className="compareprices-elem-col">
-                                                <span>PRICE</span>
+                                                <span 
+                                                    id={index + "-1-price"}
+                                                >
+                                                    {(Math.random() * 10).toFixed(2)}
+                                                </span>
                                             </Col>
                                         </Row>
                                         <Row>
@@ -86,17 +91,17 @@ export const ComparePricesContainer = (props) => {
                                                 <AiOutlineMinusCircle
                                                     className="compareprices-elem-icon"
                                                     onClick={DecreaseInput}
-                                                    aria-label={element.toString() + "-" + supermarketData[1].name}
+                                                    aria-label={index + "-1"}
                                                 />
                                                 <input 
                                                     className="compareprices-elem-input" 
-                                                    id={element.toString() + "-" + supermarketData[1].name} 
+                                                    id={index + "-1"} 
                                                     type="number" min="0" defaultValue="0"
                                                 />
                                                 <AiOutlinePlusCircle
                                                     className="compareprices-elem-icon"
                                                     onClick={IncreaseInput}
-                                                    aria-label={element.toString() + "-" + supermarketData[1].name}
+                                                    aria-label={index + "-1"}
                                                 />
                                             </Col>
                                         </Row>
@@ -106,7 +111,11 @@ export const ComparePricesContainer = (props) => {
                                     <Container fluid>
                                         <Row>
                                             <Col className="compareprices-elem-col">
-                                                <span>PRICE</span>
+                                                <span 
+                                                    id={index + "-2-price"}
+                                                >
+                                                    {(Math.random() * 10).toFixed(2)}
+                                                </span>
                                             </Col>
                                         </Row>
                                         <Row>
@@ -114,17 +123,17 @@ export const ComparePricesContainer = (props) => {
                                                 <AiOutlineMinusCircle
                                                     className="compareprices-elem-icon"
                                                     onClick={DecreaseInput}
-                                                    aria-label={element.toString() + "-" + supermarketData[2].name}
+                                                    aria-label={index + "-2"}
                                                 />
                                                 <input 
                                                     className="compareprices-elem-input" 
-                                                    id={element.toString() + "-" + supermarketData[2].name} 
+                                                    id={index + "-2"} 
                                                     type="number" min="0" defaultValue="0"
                                                 />
                                                 <AiOutlinePlusCircle
                                                     className="compareprices-elem-icon"
                                                     onClick={IncreaseInput}
-                                                    aria-label={element.toString() + "-" + supermarketData[2].name}
+                                                    aria-label={index + "-2"}
                                                 />
                                             </Col>
                                         </Row>
@@ -134,7 +143,11 @@ export const ComparePricesContainer = (props) => {
                                     <Container fluid>
                                         <Row>
                                             <Col className="compareprices-elem-col">
-                                                <span>PRICE</span>
+                                                <span 
+                                                    id={index + "-3-price"}
+                                                >
+                                                    {(Math.random() * 10).toFixed(2)}
+                                                </span>
                                             </Col>
                                         </Row>
                                         <Row>
@@ -142,17 +155,17 @@ export const ComparePricesContainer = (props) => {
                                                 <AiOutlineMinusCircle
                                                     className="compareprices-elem-icon"
                                                     onClick={DecreaseInput}
-                                                    aria-label={element.toString() + "-" + supermarketData[3].name}
+                                                    aria-label={index + "-3"}
                                                 />
                                                 <input 
                                                     className="compareprices-elem-input" 
-                                                    id={element.toString() + "-" + supermarketData[3].name} 
+                                                    id={index + "-3"} 
                                                     type="number" min="0" defaultValue="0"
                                                 />
                                                 <AiOutlinePlusCircle
                                                     className="compareprices-elem-icon"
                                                     onClick={IncreaseInput}
-                                                    aria-label={element.toString() + "-" + supermarketData[3].name}
+                                                    aria-label={index + "-3"}
                                                 />
                                             </Col>
                                         </Row>
@@ -167,7 +180,19 @@ export const ComparePricesContainer = (props) => {
     })
 
     const handleClickRedirect = () => {
-        window.location.reload(false);
+        let namePrice = []
+        for(let i = 0; i < props.ings.length; i++){
+            let total = 0;
+            for(let w = 0; w < supermarketData.length; w++){
+                let num = document.getElementById(i + "-" + w).value;
+                let price = document.getElementById(i + "-" + w + "-price").innerText;
+                num = Number(num);
+                price = Number(price);
+                total += (price * num);
+            }
+            let k = "{\"" + props.ings[i].text + "\":" + total + "}";
+            namePrice.push(k);
+        }
     };
 
     const marketNames = supermarketData.map((element) => {
@@ -181,9 +206,8 @@ export const ComparePricesContainer = (props) => {
 	return (
         <Container>
             <Row className="recipe-title-row">
-                <Col lg="2" className="compareprices-elem-col"></Col>
                 <Col lg="3" className="compareprices-elem-col"></Col>
-                <Col lg="7" className="compareprices-elem-col">
+                <Col lg="9" className="compareprices-elem-col">
                     <Container>
                         <Row>
                             {marketNames}

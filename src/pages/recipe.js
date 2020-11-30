@@ -37,10 +37,10 @@ export const RecipePage = () => {
 	const [loading, setLoading] = useState(false);
 	const aux = localStorage.getItem("atual_recipe");
 	var atual_recipe = JSON.parse(aux);
+	console.log(atual_recipe);
 
 	useEffect(() => {
 		if (!atual_recipe) {
-			console.log(atual_recipe);
 			setLoading(true);
 		} else {
 			setLoading(false);
@@ -61,8 +61,8 @@ export const RecipePage = () => {
 
 	return (
 		<>
-			<div>
-				{/* {JSON.stringify(atual_recipe2.recipe_title)} */}
+			{/*<div>
+				{JSON.stringify(atual_recipe2.recipe_title)}
 				<h1>
 					<strong>Title: </strong>
 					{atual_recipe.recipe_title}
@@ -79,7 +79,7 @@ export const RecipePage = () => {
 					<strong>Ingredients: </strong>
 					{atual_recipe.recipe_ingredients.map((ingredient, index) => (
 						<h4 key={index}>
-							{index}-{ingredient}
+							{index}-{ingredient.text}
 						</h4>
 					))}
 				</h3>
@@ -87,24 +87,24 @@ export const RecipePage = () => {
 					<strong>Steps: </strong>
 					{atual_recipe.recipe_ingredients.reverse().map((step, index) => (
 						<h4 key={index}>
-							{index}-{step}
+							{index}-{step.text}
 						</h4>
 					))}
 				</h3>
 			</div>
 
-			{/* <div>
+			<div>
 				<h1>(atualRecipe.recipe_title || "")</h1>
-			</div>
+			</div>*/}
 			{!followRecipe ? (
 				<>
 					<Navbar3 />
 					<Banner recipeName="Recipe" />
 					<RecipeContainer
 						updateGrandparent={updateGrandparentHandle}
-						recipeData={recipeData}
+						recipeData={atual_recipe}
 					/>
-					<CommentsContainer commentsData={recipeData.comments} />
+					<CommentsContainer commentsData={atual_recipe.recipe_comments} />
 				</>
 			) : (
 				<>
@@ -118,10 +118,10 @@ export const RecipePage = () => {
 					<Banner recipeName="Follow Recipe" />
 					<FollowRecipe
 						updateProgress={increaseProgress}
-						inst={recipeData.instructions}
+						inst={atual_recipe.recipe_ingredients.reverse()}
 					/>
 				</>
-			)} */}
+			)}
 		</>
 	);
 };

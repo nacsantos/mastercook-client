@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from "react";
 import { Row, Col } from "react-bootstrap";
+import { Redirect } from "react-router-dom";
 
 import "../RecipeContainer/RecipeContainer.css";
 import "./IngredientsContainer.css";
@@ -7,6 +8,8 @@ import {CheckboxList} from "../CheckboxList"
 
 export const IngredientsContainer = (props) => {
     const [ingredient, setIngredient] = useState(false);
+    const [listToPass, setListToPass] = useState([]);
+    const [redirect, setRedirect] = useState(false);
 
     useEffect(() => {    
         const vals = props.ings.map((el) => {
@@ -15,7 +18,7 @@ export const IngredientsContainer = (props) => {
     });
 
     const ingItems = props.ings.map((element) => {
-        return <li key={element.toString()} className="recipe-ingredient">{element}</li>
+        return <li key={element.id + "-" + element.text} className="recipe-ingredient">{element.text}</li>
     })
 
     const selectIngredients = () => {
@@ -24,11 +27,26 @@ export const IngredientsContainer = (props) => {
 
     const cancelSelectIngredients = () => {
         setIngredient(false);
+        setListToPass([]);
+    }
+
+    const buySelectIngredients = () => {
+        localStorage.setItem('ingsL',JSON.stringify(listToPass));
+        setRedirect(true);
     }
 
     const handleCheckboxListChange = (values) => {
         // values is array of selected item. e.g. ['apple', 'banana']
-      }
+    }
+
+    const updateParentIngsHandle = (selectedList) => {
+        setListToPass(selectedList);
+        console.log(selectedList)
+    }
+
+    if (redirect) {
+        return <Redirect to={{pathname: "/compareprice"}} />
+    }
 
 	return (
 		<Row className="recipe-title-row">
@@ -44,13 +62,21 @@ export const IngredientsContainer = (props) => {
                         </ul>
                     </> :
                     <>
-                        <button onClick={cancelSelectIngredients} className="recipe-buy-button">Cancel</button>
+                        {
+                            listToPass.length ?
+                            <div className="listtopass-div">
+                                <button onClick={cancelSelectIngredients} className="recipe-buy-button left-button">Cancel</button>
+                                <button onClick={buySelectIngredients} className="recipe-buy-button">Buy</button>
+                            </div> :
+                            <button onClick={cancelSelectIngredients} className="recipe-buy-button">Cancel</button>
+                        }
                         <CheckboxList
+                            updateParentIngs={updateParentIngsHandle}
                             className="recipe-ingredient"
                             items={props.ings}
                             selected={[]}
                             multiple={true}
-                            onChange={(selected: number) => { console.log(selected) }}
+                            onChange={(selected) => { console.log(selected) }}
                         />
                         
                     </>
