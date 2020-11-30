@@ -1,0 +1,27 @@
+#container1 {
+    margin-top: 20px;
+    min-width: 35%;
+    max-width: 40%;
+}
+
+#container2 {
+    margin-top: 20px;
+    min-width: 55%;
+    max-width: 60%;
+}
+
+#imageContainer{
+    padding: 22px
+}
+
+#column {
+  float: left;
+  width: 33.33%;
+  padding: 10px;
+}
+
+#row:after {
+  content: "";
+  display: table;
+  clear: both;
+}

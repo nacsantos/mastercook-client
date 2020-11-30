@@ -5,6 +5,7 @@ import SigninPage from "./pages/signin";
 import SignupPage from "./pages/signup";
 import FeedPage from "./pages/feed";
 import Home from "./pages";
+import { CheckoutPage } from "./pages/checkout";
 import { CreateRecipePage } from "./pages/createRecipe";
 import { RecipePage } from "./pages/recipe";
 
@@ -31,6 +32,7 @@ export default function Routes() {
 			<CustomRoute isPrivate exact path="/feed" component={FeedPage} />
 			<CustomRoute isPrivate exact path="/recipes/add" component={CreateRecipePage} />
 			<CustomRoute isPrivate exact path="/recipe/x" component={RecipePage} />
+			<CustomRoute isPrivate exact path="/checkout/x" component={CheckoutPage} />
 		</Switch>
 	);
 }
