@@ -7,12 +7,13 @@ import FeedPage from "./pages/feed";
 import Home from "./pages";
 import { CreateRecipePage } from "./pages/createRecipe";
 import { RecipePage } from "./pages/recipe";
+import MDSpinner from "react-md-spinner";
 
 function CustomRoute({ isPrivate, ...rest }) {
 	const { loading, authenticated } = useContext(Context);
 
 	if (loading) {
-		return <h1>Loading...</h1>;
+		return <MDSpinner />;
 	}
 
 	/*if (isPrivate && !authenticated) {
@@ -29,7 +30,12 @@ export default function Routes() {
 			<CustomRoute exact path="/signin" component={SigninPage} />
 			<CustomRoute exact path="/signup" component={SignupPage} />
 			<CustomRoute isPrivate exact path="/feed" component={FeedPage} />
-			<CustomRoute isPrivate exact path="/recipes/add" component={CreateRecipePage} />
+			<CustomRoute
+				isPrivate
+				exact
+				path="/recipes/add"
+				component={CreateRecipePage}
+			/>
 			<CustomRoute isPrivate exact path="/recipe/x" component={RecipePage} />
 		</Switch>
 	);

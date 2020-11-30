@@ -27,6 +27,9 @@ function RecipeProvider({ children }) {
 		errorMessage,
 		errorAddRecipe,
 		setErrorAddRecipe,
+		getAllRecipes,
+		allRecipes,
+		loading,
 	} = useRecipe();
 
 	return (
@@ -53,6 +56,9 @@ function RecipeProvider({ children }) {
 				errorMessage,
 				errorAddRecipe,
 				setErrorAddRecipe,
+				getAllRecipes,
+				allRecipes,
+				loading,
 			}}
 		>
 			{children}

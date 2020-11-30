@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import api from "../../api";
 import history from "../../history";
 import jwt_decode from "jwt-decode";
@@ -11,6 +11,30 @@ export default function useRecipe() {
 	const [newData, setNewData] = useState({});
 	const [errorAddRecipe, setErrorAddRecipe] = useState(false);
 	const [errorMessage, setErrorMessage] = useState("");
+	const [allRecipes, setAllRecipes] = useState({});
+	const [loading, setLoading] = useState(false);
+	const [error, setError] = useState({});
+	const [atualRecipe, setAtualRecipe] = useState({});
+
+	useEffect(() => {
+		let ignore = false;
+		const getAllRecipes = async () => {
+			try {
+				setLoading(true);
+				setError({});
+				//const response = await axios(`http://myapi/product/${productId}`);
+				const response = await api.get("/api/recipes/");
+				if (!ignore) setAllRecipes(response.data);
+			} catch (err) {
+				setError(err);
+			}
+			setLoading(false);
+		};
+		getAllRecipes();
+		return () => {
+			ignore = true;
+		};
+	}, []);
 
 	function initalStateLabels() {
 		return {
@@ -20,11 +44,6 @@ export default function useRecipe() {
 			label4: "Add step/instruction...",
 		};
 	}
-	// function initialState() {
-	// 	return { title: "", subtitle: "", description: "" };
-	// }
-
-	function handleSendRecipe() {}
 
 	function addIngredient(ingredient) {
 		if (!ingredient.text || /^\s*$/.test(ingredient.text)) {
@@ -120,52 +139,16 @@ export default function useRecipe() {
 		setData({ ...data, [name]: value });
 	}
 
-	// function handleChangeValues(event) {
-	// 	const { value, name } = event.target;
-	// 	setValues({ ...values, [name]: value });
-	// }
-
-	// useEffect(() => {
-	// 	const token = localStorage.getItem("token");
-
-	// 	if (token) {
-	// 		console.log("TOKEN", token);
-	// 		api.defaults.headers.Authorization = `Bearer ${JSON.parse(token)}`;
-	// 		setAuthenticated(true);
-	// 	}
-	// 	setLoading(false);
-	// }, []);
-
-	// async function handleLogin() {
-	// 	api
-	// 		.post("/api/users/login", {
-	// 			email: values.email,
-	// 			password: values.password,
-	// 		})
-	// 		.then(
-	// 			(response) => {
-	// 				console.log(response);
-	// 				let token = response.data.token;
-	// 				localStorage.setItem("token", JSON.stringify(token));
-	// 				api.defaults.headers.Authorization = `Bearer ${token}`;
-	// 				setAuthenticated(true);
-	// 				history.push("/feed");
-	// 			},
-	// 			(error) => {
-	// 				let messageError = error.response.data.error;
-	// 				console.log(messageError);
-	// 				setErrorMessage(messageError);
-	// 				setErrorLogin(true);
-	// 			}
-	// 		);
-	// }
-
-	// function handleLogout() {
-	// 	setAuthenticated(false);
-	// 	localStorage.removeItem("token");
-	// 	api.defaults.headers.Authorization = undefined;
-	// 	history.push("/");
-	// }
+	async function getAllRecipes() {
+		const recipes = await api.get("/api/recipes/");
+		const aux = recipes.data;
+		setAllRecipes(aux);
+	}
+	function getRecipe(event) {
+		//retirar o id botao
+		//iterar allrecipes com chave do botao
+		//history.push("/recipe/{chave}"
+	}
 
 	return {
 		labelValues,
@@ -189,5 +172,8 @@ export default function useRecipe() {
 		errorMessage,
 		errorAddRecipe,
 		setErrorAddRecipe,
+		getAllRecipes,
+		allRecipes,
+		loading,
 	};
 }
