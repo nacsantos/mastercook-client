@@ -7,7 +7,6 @@ import {IngredientsContainer} from "../IngredientsContainer"
 import { InstructionsContainer } from "../InstructionsContainer";
 
 export const RecipeContainer = (props) => {
-    console.log("dd",props)
 
     const updateParentHandle = () => {
         props.updateGrandparent();
