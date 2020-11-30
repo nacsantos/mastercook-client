@@ -6,12 +6,18 @@ import { Context as RecipeContext } from "../../Context/RecipeContext";
 import MDSpinner from "react-md-spinner";
 import "./FeedElements.css";
 import { Card } from "react-bootstrap";
+import { MdAdd } from "react-icons/md";
+import { IconContext } from "react-icons";
 
 function Feed() {
 	const { handleLogout } = useContext(Context);
-	const { getAllRecipes, allRecipes, loading, handleGetRecipe } = useContext(
-		RecipeContext
-	);
+	const {
+		getAllRecipes,
+		allRecipes,
+		loading,
+		handleGetRecipe,
+		handleAddRecipe,
+	} = useContext(RecipeContext);
 
 	if (loading) {
 		return <MDSpinner id="feedSpinner" size={100} />;
@@ -45,6 +51,13 @@ function Feed() {
 						</Card>
 					))}
 				</div>
+				<Card style={({ width: "18rem" }, { flex: 1 })}>
+					<IconContext.Provider value={{ color: "orange", size: "50px" }}>
+						<Card.Body>
+							<MdAdd onClick={handleAddRecipe} />
+						</Card.Body>
+					</IconContext.Provider>
+				</Card>
 			</div>
 		</>
 	);

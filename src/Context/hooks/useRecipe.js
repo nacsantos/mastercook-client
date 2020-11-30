@@ -211,6 +211,10 @@ export default function useRecipe() {
 		return atualRecipe;
 	}
 
+	function handleAddRecipe() {
+		history.push("/recipes/add");
+	}
+
 	return {
 		labelValues,
 		setIngredients,
@@ -241,5 +245,6 @@ export default function useRecipe() {
 		atualRecipe,
 		loadingAtualRecipe,
 		getAtual,
+		handleAddRecipe,
 	};
 }
