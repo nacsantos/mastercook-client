@@ -1,0 +1,32 @@
+.go-checkout-col{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.compareprices-elem-col{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.compareprices-elem-container{
+    padding: 1rem 0rem;
+}
+
+.compareprices-elem-input::-webkit-outer-spin-button,
+.compareprices-elem-input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Firefox */
+.compareprices-elem-input {
+    -moz-appearance: textfield;
+    text-align: center;
+    width: 2rem;
+    margin: 0rem 0.7rem;
+}
+
+.compareprices-elem-icon{
+    font-size: 1.5rem;
+}

@@ -1,67 +1,127 @@
-import React, {useState} from "react";
+import React, { useState, useContext, useEffect } from "react";
 import Banner from "../components/Banner";
-import { Progress } from 'antd';
+import { Progress } from "antd";
 
 import Navbar3 from "../components/Navbar3";
-import {RecipeContainer} from "../components/RecipeContainer";
-import {CommentsContainer} from "../components/CommentsContainer";
-import {FollowRecipe} from "../components/FollowRecipe";
+import { RecipeContainer } from "../components/RecipeContainer";
+import { CommentsContainer } from "../components/CommentsContainer";
+import { FollowRecipe } from "../components/FollowRecipe";
+import { Context } from "../Context/RecipeContext";
+import MDSpinner from "react-md-spinner";
 
 let recipeData = {
-    title: "Greek Cod",
-    subtitle: "Authentic Greek Recipe",
-    description: "Eat cod like a true Greek!",
-    ingredients: [
-        "ing0", "ing1", "ing2"
-    ],
-    instructions: [
-        "ins0", "ins1", "ins2", "Timer: 00:00:05", "Timer: 00:00:07"
-    ],
-    comments: [
-        {
-            "id": "00",
-            "user": "Leslie",
-            "photo": '/images/comments_profile_pic.jpg',
-            "comment": "Nice flavour!",
-        },
-        {
-            "id": "01",
-            "user": "Rodie",
-            "photo": '/images/comments_profile_pic.jpg',
-            "comment": "Super!",
-        }
-    ]
-}
+	title: "Greek Cod",
+	subtitle: "Authentic Greek Recipe",
+	description: "Eat cod like a true Greek!",
+	ingredients: ["ing0", "ing1", "ing2"],
+	instructions: ["ins0", "ins1", "ins2", "Timer: 00:00:05", "Timer: 00:00:07"],
+	comments: [
+		{
+			id: "00",
+			user: "Leslie",
+			photo: "/images/comments_profile_pic.jpg",
+			comment: "Nice flavour!",
+		},
+		{
+			id: "01",
+			user: "Rodie",
+			photo: "/images/comments_profile_pic.jpg",
+			comment: "Super!",
+		},
+	],
+};
 
 export const RecipePage = () => {
-    const [followRecipe, setFollowRecipe] = useState(false);
-    const [progress, setProgress] = useState(0);
+	const [followRecipe, setFollowRecipe] = useState(false);
+	const [progress, setProgress] = useState(0);
+	const [loading, setLoading] = useState(false);
+	const aux = localStorage.getItem("atual_recipe");
+	var atual_recipe = JSON.parse(aux);
 
-    const updateGrandparentHandle = () => {
-        setFollowRecipe(true);
-    }
+	useEffect(() => {
+		if (!atual_recipe) {
+			console.log(atual_recipe);
+			setLoading(true);
+		} else {
+			setLoading(false);
+		}
+	}, []);
 
-    const increaseProgress = (x) => {
-        setProgress(x)
-    }
+	const updateGrandparentHandle = () => {
+		setFollowRecipe(true);
+	};
+
+	const increaseProgress = (x) => {
+		setProgress(x);
+	};
+
+	if (loading) {
+		return <MDSpinner id="feedSpinner" size={100} />;
+	}
 
 	return (
 		<>
-            {
-                !followRecipe ?
-                <>
-                    <Navbar3 />
-                    <Banner recipeName="Recipe"/>
-                    <RecipeContainer updateGrandparent={updateGrandparentHandle} recipeData={recipeData}/>
-                    <CommentsContainer commentsData={recipeData.comments}/>
-                </> :
-                <>
-                    <Navbar3 />
-                    <Progress percent={progress} strokeColor="#E67F22" showInfo={false} strokeWidth="0.2rem" />
-                    <Banner recipeName="Follow Recipe"/>
-                    <FollowRecipe updateProgress={increaseProgress} inst={recipeData.instructions} />
-                </>
-            }
+			<div>
+				{/* {JSON.stringify(atual_recipe2.recipe_title)} */}
+				<h1>
+					<strong>Title: </strong>
+					{atual_recipe.recipe_title}
+				</h1>
+				<h2>
+					<strong>Subtitle: </strong>
+					{atual_recipe.recipe_subtitle}
+				</h2>
+				<h3>
+					<strong>Description: </strong>
+					{atual_recipe.recipe_description}
+				</h3>
+				<h3>
+					<strong>Ingredients: </strong>
+					{atual_recipe.recipe_ingredients.map((ingredient, index) => (
+						<h4 key={index}>
+							{index}-{ingredient}
+						</h4>
+					))}
+				</h3>
+				<h3>
+					<strong>Steps: </strong>
+					{atual_recipe.recipe_ingredients.reverse().map((step, index) => (
+						<h4 key={index}>
+							{index}-{step}
+						</h4>
+					))}
+				</h3>
+			</div>
+
+			{/* <div>
+				<h1>(atualRecipe.recipe_title || "")</h1>
+			</div>
+			{!followRecipe ? (
+				<>
+					<Navbar3 />
+					<Banner recipeName="Recipe" />
+					<RecipeContainer
+						updateGrandparent={updateGrandparentHandle}
+						recipeData={recipeData}
+					/>
+					<CommentsContainer commentsData={recipeData.comments} />
+				</>
+			) : (
+				<>
+					<Navbar3 />
+					<Progress
+						percent={progress}
+						strokeColor="#E67F22"
+						showInfo={false}
+						strokeWidth="0.2rem"
+					/>
+					<Banner recipeName="Follow Recipe" />
+					<FollowRecipe
+						updateProgress={increaseProgress}
+						inst={recipeData.instructions}
+					/>
+				</>
+			)} */}
 		</>
 	);
 };

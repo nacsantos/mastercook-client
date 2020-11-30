@@ -2,21 +2,62 @@ import React, { useContext, useEffect } from "react";
 import { Context } from "../../Context/AuthContext";
 import { Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { Context as RecipeContext } from "../../Context/RecipeContext";
+import MDSpinner from "react-md-spinner";
+import "./FeedElements.css";
+import { Card } from "react-bootstrap";
+import { MdAdd } from "react-icons/md";
+import { IconContext } from "react-icons";
 
 function Feed() {
 	const { handleLogout } = useContext(Context);
-	useEffect(() => {}, []);
+	const {
+		getAllRecipes,
+		allRecipes,
+		loading,
+		handleGetRecipe,
+		handleAddRecipe,
+	} = useContext(RecipeContext);
+
+	if (loading) {
+		return <MDSpinner id="feedSpinner" size={100} />;
+	}
+
 	return (
 		<>
 			<div>
-				<h1>Hello from Feed...you're logged!</h1>
-			</div>
-			<div>
-				<Link to="/recipes/add">Add recipe</Link>
-			</div>
-			<br />
-			<div>
-				<Button onClick={handleLogout}>Logout</Button>
+				<div>
+					<Button onClick={handleLogout}>Logout</Button>
+				</div>
+				<div>
+					<Link to="/recipes/add">Add recipe</Link>
+				</div>
+				<div style={{ display: "flex", flexDirection: "row" }}>
+					{allRecipes.map((recipe, index) => (
+						<Card style={({ width: "18rem" }, { flex: 1 })} key={index}>
+							<Card.Img variant="top" src={recipe.recipe_photos[0][0].base64} />
+							<Card.Body>
+								<Card.Title>{recipe.recipe_title}</Card.Title>
+								<Card.Text>{recipe.recipe_subtitle}</Card.Text>
+								<Button
+									variant="primary"
+									key={index}
+									id={index}
+									onClick={handleGetRecipe}
+								>
+									View more
+								</Button>
+							</Card.Body>
+						</Card>
+					))}
+				</div>
+				<Card style={({ width: "18rem" }, { flex: 1 })}>
+					<IconContext.Provider value={{ color: "orange", size: "50px" }}>
+						<Card.Body>
+							<MdAdd onClick={handleAddRecipe} />
+						</Card.Body>
+					</IconContext.Provider>
+				</Card>
 			</div>
 		</>
 	);

@@ -1,6 +1,4 @@
 import React, { useContext } from "react";
-import { RecipeProvider } from "../../Context/RecipeContext";
-
 import { Row, Col } from "react-bootstrap";
 import RecipeData from "./recipeData";
 import RecipeData2 from "./recipeData2";
@@ -10,11 +8,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const RecipeForm = () => {
-	return (
-		<RecipeProvider>
-			<RecipeContainer />
-		</RecipeProvider>
-	);
+	return <RecipeContainer />;
 };
 
 const RecipeContainer = () => {
