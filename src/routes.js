@@ -44,7 +44,7 @@ export default function Routes() {
 			<CustomRoute
 				isPrivate
 				exact
-				path="/compareprice"
+				path="/compareprice/x"
 				component={ComparePricesPage}
 			/>
 		</Switch>

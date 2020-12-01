@@ -209,7 +209,7 @@ export const ComparePricesContainer = (props) => {
     })
 
     if (redirect) {
-        return <Redirect to={{pathname: "/checkout"}} />
+        return <Redirect to={{pathname: "/checkout/x"}} />
     }
 
 	return (

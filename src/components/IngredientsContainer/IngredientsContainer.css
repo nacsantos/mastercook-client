@@ -21,3 +21,8 @@ li {list-style-type: none;}
 .left-button{
 	margin-right: 1rem;
 }
+
+.recipe-list-ul{
+	display: flex;
+	flex-direction: column;
+}

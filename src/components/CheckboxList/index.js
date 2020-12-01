@@ -39,7 +39,7 @@ export const CheckboxList = (props) => {
 
 	return (
 
-        <ul>
+        <ul className="recipe-list-ul">
             {ingItems}
         </ul>
 	);

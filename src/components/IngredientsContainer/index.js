@@ -45,7 +45,7 @@ export const IngredientsContainer = (props) => {
     }
 
     if (redirect) {
-        return <Redirect to={{pathname: "/compareprice"}} />
+        return <Redirect to={{pathname: "/compareprice/x"}} />
     }
 
 	return (
