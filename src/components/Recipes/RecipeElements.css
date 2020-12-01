@@ -1,11 +1,14 @@
 #container1 {
     margin-top: 20px;
+    color: white;
 }
 
 #container2 {
+    color: white;
     margin-top: 20px;
 }
 
 #imageContainer{
+    color: white;
     padding: 22px
 }

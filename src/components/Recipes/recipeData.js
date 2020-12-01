@@ -23,8 +23,9 @@ const RecipeData = () => {
 	return (
 		<>
 			<Form>
-				<Form.Group controlId="title">
-					<Form.Label>
+				<Form.Group controlId="title" 
+						style={{ color: "white" }}>
+					<Form.Label style={{ color: "white" }}>
 						<strong>Title</strong>
 					</Form.Label>
 					<Form.Control
@@ -37,7 +38,7 @@ const RecipeData = () => {
 					/>
 				</Form.Group>
 				<Form.Group controlId="subtitle">
-					<Form.Label>
+					<Form.Label style={{ color: "white" }}>
 						<strong>Subtitle</strong>
 					</Form.Label>
 					<Form.Control
@@ -51,7 +52,7 @@ const RecipeData = () => {
 					/>
 				</Form.Group>
 				<Form.Group controlId="description">
-					<Form.Label>
+					<Form.Label style={{ color: "white" }}>
 						<strong>Description</strong>
 					</Form.Label>
 					<Form.Control
