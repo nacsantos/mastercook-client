@@ -9,10 +9,12 @@
 }
 
 .followrecipe-inst-col{
+    color: white;
     display: flex;
     align-items: center;
 }
 
 .time-text{
+    color: white;
     font-size: 3rem;
 }
