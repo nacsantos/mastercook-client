@@ -40,6 +40,7 @@ body {
   
   /* <nav> */
   .navbar {
+    z-index: ;
     height: var(--nav-size);
     background-color: var(--bg);
     padding: 0 1rem;
@@ -48,42 +49,14 @@ body {
   
   /* <ul> - NavBar: Level #0 */
   .navbar-nav {
+    z-index: 1;
     min-width: 100%;
     max-width: 100%;
     height: 100%;
-    justify-content:space-between;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
   }
-  
-  /* <li> - Brand Component: Level #1 */
-  .navbar-brand-component {
-    align-items: center;
-    justify-content: center;
-    margin-left: inherit;
-  }
-  
-  /* <li> - Essentials Component: Level #1 */
-  .navbar-essential-component {
-    align-items: center;
-    justify-content: center;
-    margin-top: 8px;
-    margin-left: -420px;
-  }
-  
-  /* <li> - Search Component: Level #1 */
-  .navbar-search-component {
-    align-items: center;
-    justify-content: center;
-    margin-left: -400px;
-  }
-  
-  /* <li> - Items Component: Level #1 */
-  .navbar-item-component {
-    align-items: center;
-    justify-content: center;
-    margin-top: 8px;
-    margin-right: -8px;
-  }
-  
   
   /* <ul> - Brand List: Level #2 */
   .navbar-brand-list {
@@ -100,28 +73,24 @@ body {
     height: 100%;
   }
   
-  
   /* <li> - Brand: Level #3 */
   .nav-brand {
     width: calc(var(--nav-size) * 0.8);
     display: flex;
-    align-items: center;
+    align-items: baseline;
     justify-content: center;
   }
   
   /* <li> - Essential: Level #3 */
   .nav-essential {
     width: calc(var(--nav-size) * 0.6);
-    margin-top: 2px;
-    display: flex;
-    align-items: center;
+    align-items: baseline;
     justify-content: center;
   }
   
   /* <li> - Search: Level #3 */
   .nav-search {
     width: calc(var(--nav-size) * 6);
-    margin-left: 200px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -131,7 +100,8 @@ body {
   .nav-item {
     width: calc(var(--nav-size) * 0.8);
     display: flex;
-    align-items: center;
+    margin-top: 5%;
+    align-items: baseline;
     justify-content: center;
   }
   
@@ -304,9 +274,11 @@ body {
   
   .dropdown {
     position: absolute;
-    z-index: -2;
-    top: 50px;
-    margin-left: 6px;  
+    top: 60px;
+    min-height: 650%;
+    max-height: 100%;
+    height: 200%;
+    margin-left: 6px;
     width: 310px;
     transform: translateX(-45%);
     background-color: var(--bg);

@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import Banner from "../components/Banner";
-import Navbar3 from "../components/Navbar3";
+import Navbar3 from "../components/Navbar2";
 import {ComparePricesContainer} from "../components/ComparePricesContainer";
 
 let data = {
