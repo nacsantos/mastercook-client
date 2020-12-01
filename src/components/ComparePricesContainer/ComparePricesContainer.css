@@ -30,3 +30,7 @@
 .compareprices-elem-icon{
     font-size: 1.5rem;
 }
+
+.align-left{
+    justify-content: flex-start;
+}

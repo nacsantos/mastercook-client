@@ -33,7 +33,7 @@ export default function Routes() {
 			<CustomRoute exact path="/signup" component={SignupPage} />
 			<CustomRoute isPrivate exact path="/feed" component={FeedPage} />
             <CustomRoute isPrivate exact path="/recipe/x" component={RecipePage} />
-			<CustomRoute isPrivate exact path="/checkout/x" component={CheckoutPage} />
+			<CustomRoute isPrivate exact path="/checkout" component={CheckoutPage} />
 			<CustomRoute
 				isPrivate
 				exact

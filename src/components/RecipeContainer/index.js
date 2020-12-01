@@ -16,10 +16,10 @@ export const RecipeContainer = (props) => {
         <Container className="recipe-title-container">
             <Row className="recipe-title-row">
                 <Col className="recipe-title-col">
-                    <h3 className="recipe-title">{props.recipeData.title}</h3>
-                    <p className="recipe-subtitle">{props.recipeData.subtitle}</p>
+                    <h3 className="recipe-title">{props.recipeData.recipe_title}</h3>
+                    <p className="recipe-subtitle">{props.recipeData.recipe_subtitle}</p>
                     <h6 className="recipe-desciption-title">Description</h6>
-                    <p className="recipe-description">{props.recipeData.description}</p>
+                    <p className="recipe-description">{props.recipeData.recipe_description}</p>
                 </Col>
                 <Col className="recipe-img-col">
                     <img className="recipe-img" src={logo} alt="Test Image"/>
@@ -30,13 +30,13 @@ export const RecipeContainer = (props) => {
                     <hr className="recipe-hr"/>
                 </Col>
             </Row>
-            <IngredientsContainer ings={props.recipeData.ingredients}/>
+            <IngredientsContainer ings={props.recipeData.recipe_ingredients}/>
             <Row>
                 <Col className="recipe-hr-col">
                     <hr className="recipe-hr"/>
                 </Col>
             </Row>
-            <InstructionsContainer updateParent={updateParentHandle} inst={props.recipeData.instructions}/>
+            <InstructionsContainer updateParent={updateParentHandle} inst={props.recipeData.recipe_steps_instructions}/>
         </Container>
 	);
 };

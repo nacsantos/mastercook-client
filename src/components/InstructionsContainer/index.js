@@ -6,7 +6,7 @@ import "./InstructionsContainer.css";
 
 export const InstructionsContainer = (props) => {
     const insItems = props.inst.map((element) => {
-        return <li key={element.toString()} className="recipe-ingredient">{element}</li>
+        return <li key={element.id + "-" + element.text} className="recipe-ingredient">{element.text}</li>
     })
 
     const handleClick = () => {

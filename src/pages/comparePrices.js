@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import Banner from "../components/Banner";
 import Navbar3 from "../components/Navbar2";
 import {ComparePricesContainer} from "../components/ComparePricesContainer";
@@ -9,12 +9,15 @@ let data = {
     ],
 }
 
-export const ComparePricesPage = () => {
+export const ComparePricesPage = (props) => {
+	const [listToUse, setListToUse] = useState(JSON.parse(localStorage.getItem("ingsL")));
+	console.log(listToUse)
+
 	return (
 		<>
 			<Navbar3 />
 			<Banner recipeName="Compare Prices"/>
-			<ComparePricesContainer ings={data.ingredients}/>
+			<ComparePricesContainer ings={listToUse}/>
 		</>
 	);
 };

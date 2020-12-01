@@ -13,3 +13,11 @@ li {list-style-type: none;}
 .react-list-select--item.is-disabled {
 	color: #afafaf;
 }
+
+.listtopass-div{
+	display: flex;
+}
+
+.left-button{
+	margin-right: 1rem;
+}
