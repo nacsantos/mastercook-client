@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import { AiOutlineMinusCircle, AiOutlinePlusCircle } from "react-icons/ai";
+import { Redirect } from "react-router-dom";
 
 import "../RecipeContainer/RecipeContainer.css";
 import "./ComparePricesContainer.css";
@@ -22,6 +23,7 @@ const supermarketData = [
 
 export const ComparePricesContainer = (props) => {
     const [pricesToShow, setPricesToShow] = useState([]);
+    const [redirect, setRedirect] = useState(false);
 
     const DecreaseInput = (el) => {
         let ariaL = el.currentTarget.getAttribute("aria-label");
@@ -191,8 +193,11 @@ export const ComparePricesContainer = (props) => {
                 total += (price * num);
             }
             let k = "{\"" + props.ings[i].text + "\":" + total + "}";
-            namePrice.push(k);
+            let t = JSON.parse(k);
+            namePrice.push(t);
         }
+        localStorage.setItem('checkoutList',JSON.stringify(namePrice));
+        setRedirect(true);
     };
 
     const marketNames = supermarketData.map((element) => {
@@ -202,6 +207,10 @@ export const ComparePricesContainer = (props) => {
             </Col>
         )
     })
+
+    if (redirect) {
+        return <Redirect to={{pathname: "/checkout"}} />
+    }
 
 	return (
         <Container>
