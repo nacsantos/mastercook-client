@@ -18,21 +18,18 @@ const Sidebar = ({ isOpen, toogle }) => {
 			<SidebarWrapper>
 				<SidebarMenu>
 					<SidebarLink to="about" onClick={toogle}>
-						About
+						Save
 					</SidebarLink>
 					<SidebarLink to="discover" onClick={toogle}>
-						Discover
+						Recipes
+					</SidebarLink>
+					<SidebarLink to="signup" onClick={toogle}>
+						Network
 					</SidebarLink>
 					<SidebarLink to="services" onClick={toogle}>
 						Services
 					</SidebarLink>
-					<SidebarLink to="signup" onClick={toogle}>
-						Sign Up
-					</SidebarLink>
 				</SidebarMenu>
-				<SideBtnWrap>
-					<SidebarRoute to="/signin">Sign In</SidebarRoute>
-				</SideBtnWrap>
 			</SidebarWrapper>
 		</SidebarContainer>
 	);

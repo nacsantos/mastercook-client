@@ -1,7 +1,7 @@
 #bannerRecipe {
     background: url('../../assets/images/banner.jpg') no-repeat;
     background-size: cover;
-    filter: grayscale(50%);
+    filter: grayscale(65%);
     font-size: 30px;
     color: #fff;
     margin-top: 2rem;

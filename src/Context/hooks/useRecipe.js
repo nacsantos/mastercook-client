@@ -111,6 +111,7 @@ export default function useRecipe() {
 			owner_user_email: decoded.user_email,
 		};
 		console.log(userData);
+		console.log(photos);
 		api
 			.post("/api/recipes/create", {
 				recipe_title: data.title,

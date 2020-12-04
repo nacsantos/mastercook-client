@@ -12,3 +12,10 @@
 .dark-button:hover{
   color: #FFFFFF;
 }
+#feedSpinner{
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  margin-top: 100px;
+  margin-left: -50px;
+}
