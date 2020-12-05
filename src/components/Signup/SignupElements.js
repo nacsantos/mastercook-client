@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 export const Container = styled.div`
 	min-height: 692px;
-	position: fixed;
+	/* position: fixed; */
 	bottom: 0;
 	left: 0;
 	right: 0;
@@ -97,153 +97,153 @@ export const FormButton = styled.button`
 	cursor: pointer;
 `;
 
-export const ContainerSelectDate = styled('div')`
-   width: 100%;
-   height: 100%;
-   display: flex;
-   flex-flow: row wrap;
-   justify-content: space-around;
-   align-items: baseline;
- `;
+export const ContainerSelectDate = styled("div")`
+	width: 100%;
+	height: 100%;
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: space-around;
+	align-items: baseline;
+`;
 
 export const SelectDateStyles = {
-  container: base => ({
-    ...base,
-    flex: 1
-  })
+	container: (base) => ({
+		...base,
+		flex: 1,
+	}),
 };
 
 export const FormSelectDay = styled.select`
-    padding: 10px 10px;
-    margin-bottom: 10px;
-    border: none;
-    border-radius: 4px;
-    width: 25%;
-    padding-left: 5px;
-    font-size: 14px;
-    
-  option {
-    color: black;
-    background: white;
-    display: flex;
-    white-space: pre;
-    min-height: 20px;
-    padding: 0px 2px 1px;
-  }
+	padding: 10px 10px;
+	margin-bottom: 10px;
+	border: none;
+	border-radius: 4px;
+	width: 25%;
+	padding-left: 5px;
+	font-size: 14px;
+
+	option {
+		color: black;
+		background: white;
+		display: flex;
+		white-space: pre;
+		min-height: 20px;
+		padding: 0px 2px 1px;
+	}
 `;
 
 export const FormSelectMonth = styled.select`
-    padding: 10px 10px;
-    margin-bottom: 10px;
-    border: none;
-    border-radius: 4px;
-    width: 40%;
-    padding-left: 5px;
-    font-size: 14px;
-    
-  option {
-    color: black;
-    background: white;
-    display: flex;
-    white-space: pre;
-    min-height: 20px;
-    padding: 0px 2px 1px;
-  }
+	padding: 10px 10px;
+	margin-bottom: 10px;
+	border: none;
+	border-radius: 4px;
+	width: 40%;
+	padding-left: 5px;
+	font-size: 14px;
+
+	option {
+		color: black;
+		background: white;
+		display: flex;
+		white-space: pre;
+		min-height: 20px;
+		padding: 0px 2px 1px;
+	}
 `;
 
 export const FormSelectYear = styled.select`
-    padding: 10px 10px;
-    margin-bottom: 10px;
-    border: none;
-    border-radius: 4px;
-    width: 25%;
-    padding-left: 5px;
-    font-size: 14px;
-    
-  option {
-    color: black;
-    background: white;
-    display: flex;
-    white-space: pre;
-    min-height: 20px;
-    padding: 0px 2px 1px;
-  }
+	padding: 10px 10px;
+	margin-bottom: 10px;
+	border: none;
+	border-radius: 4px;
+	width: 25%;
+	padding-left: 5px;
+	font-size: 14px;
+
+	option {
+		color: black;
+		background: white;
+		display: flex;
+		white-space: pre;
+		min-height: 20px;
+		padding: 0px 2px 1px;
+	}
 `;
 
 export const FormRadioWrapper = styled.div`
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: space-between;
-    align-items: baseline;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: space-between;
+	align-items: baseline;
 `;
 
 export const RadioMark = styled.span`
-  display: inline-block;
-  position: relative;
-  border: 1px solid #777777;
-  width: 14px;
-  height: 14px;
-  left: 0px;
-  border-radius: 50%;
-  margin-right: 5px;
-  vertical-align: middle;
-  &::after {
-    content: "";
-    display: block;
-    width: 0;
-    height: 0;
-    border-radius: 50%;
-    background-color: #03a9f4;
-    opacity: 0;
-    left: 50%;
-    top: 50%;
-    position: absolute;
-    transition: all 110ms;
-  }
+	display: inline-block;
+	position: relative;
+	border: 1px solid #777777;
+	width: 14px;
+	height: 14px;
+	left: 0px;
+	border-radius: 50%;
+	margin-right: 5px;
+	vertical-align: middle;
+	&::after {
+		content: "";
+		display: block;
+		width: 0;
+		height: 0;
+		border-radius: 50%;
+		background-color: #03a9f4;
+		opacity: 0;
+		left: 50%;
+		top: 50%;
+		position: absolute;
+		transition: all 110ms;
+	}
 `;
 
 export const RadioInput = styled.input`
-  position: absolute;
-  visibility: hidden;
-  display: none;
-  &:checked + ${RadioMark} {
-    &::after {
-      width: 10px;
-      height: 10px;
-      opacity: 1;
-      left: 8%;
-      top: 10%;
-    }
-  }
+	position: absolute;
+	visibility: hidden;
+	display: none;
+	&:checked + ${RadioMark} {
+		&::after {
+			width: 10px;
+			height: 10px;
+			opacity: 1;
+			left: 8%;
+			top: 10%;
+		}
+	}
 `;
 
 export const RadioLabel = styled.label`
-  display: flex;
-  cursor: pointer;
-  color: #FFFFFF;
-  font-size: 14px;
-  padding: 5px 10px 5px 0;
-  position: relative;
-  ${props =>
-    props.disabled &&
-    `
+	display: flex;
+	cursor: pointer;
+	color: #ffffff;
+	font-size: 14px;
+	padding: 5px 10px 5px 0;
+	position: relative;
+	${(props) =>
+		props.disabled &&
+		`
         cursor: not-allowed;
         opacity: 0.4;
     `}
 `;
 
 export const RadioText1 = styled.span`
-    margin-top: -5%;
-    display: flex;
+	margin-top: -5%;
+	display: flex;
 	color: #fff;
 	font-size: 14px;
 `;
 
 export const RadioText2 = styled.span`
-    margin-top: -2.5%;
-    display: flex;
+	margin-top: -2.5%;
+	display: flex;
 	color: #fff;
 	font-size: 14px;
 `;

@@ -10,8 +10,8 @@ import { CreateRecipePage } from "./pages/createRecipe";
 import { RecipePage } from "./pages/recipe";
 import { ComparePricesPage } from "./pages/comparePrices";
 import MDSpinner from "react-md-spinner";
-import PageNotFound from "./components/NotFound/PageNotFound";
 import "./App.css";
+import PageNotFound from "./components/NotFound";
 
 function CustomRoute({ isPrivate, ...rest }) {
 	const { loading, authenticated } = useContext(Context);
