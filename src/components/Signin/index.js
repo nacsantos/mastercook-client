@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { Context } from "../../Context/AuthContext";
 import {
-	Container,
+	Container1,
 	FormWrap,
 	Icon,
 	FormContent,
@@ -13,7 +13,9 @@ import {
 	Text,
 } from "./SiginElements";
 import { ToastContainer, toast } from "react-toastify";
+import Container from "react-bootstrap/Container";
 import "react-toastify/dist/ReactToastify.css";
+import "./Signin.css"
 
 const SignIn = () => {
 	const { errorMessage, errorLogin, setErrorLogin } = useContext(Context);
@@ -44,8 +46,8 @@ const LoginForm = (props) => {
 		handleChangeValues(event);
 	}
 	return (
-		<>
-			<Container>
+		<Container className="signin-container" fluid>
+			<Container1>
 				<FormWrap>
 					<Icon to="/">MasterCook</Icon>
 					<FormContent>
@@ -74,14 +76,14 @@ const LoginForm = (props) => {
 							</FormButton>
                             <br/>
                             <center>
-                                <a href=""><Text>Forgot password?</Text></a>
+                                <a className="signin-text" href=""><Text>Forgot password?</Text></a>
                             </center>
 						</Form>
 					</FormContent>
 				</FormWrap>
-			</Container>
+			</Container1>
 			<ToastContainer />
-		</>
+		</Container>
 	);
 };
 

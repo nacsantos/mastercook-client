@@ -1,19 +1,14 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
-export const Container = styled.div`
+export const Container1 = styled.div`
 	min-height: 692px;
-	position: fixed;
-	bottom: 0;
-	left: 0;
-	right: 0;
-	top: 0;
 	z-index: 0;
-	overflow: hidden;
+	width: 100%;
 	background: linear-gradient(
 		108deg,
-		rgba(74, 105, 189, 1) 0%,
-		rgba(120, 143, 206, 1) 100%
+		rgba(230, 127, 34, 1) 0%,
+		rgba(240, 178, 122, 1) 100%
 	);
 `;
 
@@ -22,7 +17,6 @@ export const FormWrap = styled.div`
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-
 	@media screen and (max-width: 400px) {
 		height: 80%;
 	}
@@ -35,7 +29,9 @@ export const Icon = styled(Link)`
 	color: #fff;
 	font-weight: 700;
 	font-size: 32px;
-
+	&:hover{
+		color: #FFFFFF;
+	}
 	@media screen and (max-width: 400px) {
 		margin-left: 32px;
 		margin-top: 32px;
@@ -88,7 +84,7 @@ export const FormInput = styled.input`
 	border-radius: 4px;
 `;
 export const FormButton = styled.button`
-	background: #4a69bd;
+	background: #E67F22;
 	padding: 16px 0;
 	border: none;
 	border-radius: 4px;
@@ -102,4 +98,7 @@ export const Text = styled.span`
 	margin-top: 24px;
 	color: #fff;
 	font-size: 14px;
+	&:hover{
+		color: #fff;
+	}
 `;

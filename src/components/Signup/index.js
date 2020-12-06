@@ -3,7 +3,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { withRouter } from "react-router-dom";
 import {
-	Container,
+	Container1,
 	FormWrap,
 	Icon,
 	FormContent,
@@ -26,7 +26,13 @@ import {
     RadioText1,
     RadioText2,
 } from "./SignupElements";
+import Container from "react-bootstrap/Container"
+import Row from "react-bootstrap/Row"
+import Col from "react-bootstrap/Col"
 import api from "../../api";
+import "./Signup.css"
+
+
 class SignUp extends Component {
 	constructor(props) {
 		super(props);
@@ -113,8 +119,8 @@ class SignUp extends Component {
 
 	render() {
 		return (
-			<>
-				<Container>
+			<Container className="signup-container" fluid>
+				<Container1>
 					<FormWrap>
 						<Icon to="/">MasterCook</Icon>
 						<FormContent>
@@ -401,16 +407,16 @@ class SignUp extends Component {
                                 <FormButton type="submit">Sign Up</FormButton>    
                                 <br />
                                 <center>
-                                    <a href=""><Text>Forgot password?</Text></a>
+                                    <a className="signup-text" href=""><Text>Forgot password?</Text></a>
                                     <br />
-                                    <a href=""><Text>Do you have an account? Sign up!</Text></a>
+                                    <a className="signup-text" href=""><Text>Do you have an account? Sign up!</Text></a>
                                 </center>
 							</Form>
 						</FormContent>
 					</FormWrap>
-				</Container>
+				</Container1>
 				<ToastContainer />
-			</>
+			</Container>
 		);
 	}
 }
