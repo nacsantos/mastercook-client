@@ -75,7 +75,7 @@ const LoginForm = (props) => {
 							</FormButton>
                             <br/>
                             <center>
-                                <a href=""><Text>Forgot password?</Text></a>
+                                <a className="signin-text" href=""><Text>Forgot password?</Text></a>
                             </center>
 						</Form>
 					</FormContent>

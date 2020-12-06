@@ -404,9 +404,9 @@ class SignUp extends Component {
                                 <FormButton type="submit">Sign Up</FormButton>    
                                 <br />
                                 <center>
-                                    <a href=""><Text>Forgot password?</Text></a>
+                                    <a className="signup-text" href=""><Text>Forgot password?</Text></a>
                                     <br />
-                                    <a href=""><Text>Do you have an account? Sign up!</Text></a>
+                                    <a className="signup-text" href=""><Text>Do you have an account? Sign up!</Text></a>
                                 </center>
 							</Form>
 						</FormContent>
