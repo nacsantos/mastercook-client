@@ -1,15 +1,10 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
-export const Container = styled.div`
+export const Container1 = styled.div`
 	min-height: 692px;
-	position: fixed;
-	bottom: 0;
-	left: 0;
-	right: 0;
-	top: 0;
-	z-index: 0;
-	overflow: hidden;
+  z-index: 0;
+  width: 100%;
 	background: linear-gradient(
 		108deg,
 		rgba(230, 127, 34, 1) 0%,
@@ -50,7 +45,8 @@ export const FormContent = styled.div`
 	height: 100%;
 	display: flex;
 	flex-direction: column;
-	justify-content: center;
+  justify-content: center;
+  margin-bottom: 2rem;
 	@media screen and (max-width: 400px) {
 		padding: 10px;
 	}
