@@ -52,7 +52,7 @@ export const ComparePricesContainer = (props) => {
                                                 <span 
                                                     id={index + "-0-price"}
                                                 >
-                                                    {(Math.random() * 10).toFixed(2)}
+                                                    {(Math.random() * 10).toFixed(2)} €
                                                 </span>
                                             </Col>
                                         </Row>
@@ -84,7 +84,7 @@ export const ComparePricesContainer = (props) => {
                                                 <span 
                                                     id={index + "-1-price"}
                                                 >
-                                                    {(Math.random() * 10).toFixed(2)}
+                                                    {(Math.random() * 10).toFixed(2)} €
                                                 </span>
                                             </Col>
                                         </Row>
@@ -116,7 +116,7 @@ export const ComparePricesContainer = (props) => {
                                                 <span 
                                                     id={index + "-2-price"}
                                                 >
-                                                    {(Math.random() * 10).toFixed(2)}
+                                                    {(Math.random() * 10).toFixed(2)} €
                                                 </span>
                                             </Col>
                                         </Row>
@@ -148,7 +148,7 @@ export const ComparePricesContainer = (props) => {
                                                 <span 
                                                     id={index + "-3-price"}
                                                 >
-                                                    {(Math.random() * 10).toFixed(2)}
+                                                    {(Math.random() * 10).toFixed(2)} €
                                                 </span>
                                             </Col>
                                         </Row>
