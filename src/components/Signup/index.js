@@ -27,6 +27,9 @@ import {
     RadioText2,
 } from "./SignupElements";
 import api from "../../api";
+import "./Signup.css"
+
+
 class SignUp extends Component {
 	constructor(props) {
 		super(props);

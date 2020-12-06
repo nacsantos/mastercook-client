@@ -12,8 +12,8 @@ export const Container = styled.div`
 	overflow: hidden;
 	background: linear-gradient(
 		108deg,
-		rgba(74, 105, 189, 1) 0%,
-		rgba(120, 143, 206, 1) 100%
+		rgba(230, 127, 34, 1) 0%,
+		rgba(240, 178, 122, 1) 100%
 	);
 `;
 
@@ -34,7 +34,11 @@ export const Icon = styled(Link)`
 	text-decoration: none;
 	color: #fff;
 	font-weight: 700;
-	font-size: 32px;
+  font-size: 32px;
+  
+  &:hover{
+		color: #FFFFFF;
+	}
 
 	@media screen and (max-width: 400px) {
 		margin-left: 32px;
@@ -88,7 +92,7 @@ export const FormInput = styled.input`
 	border-radius: 4px;
 `;
 export const FormButton = styled.button`
-	background: #4a69bd;
+	background: #E67F22;
 	padding: 16px 0;
 	border: none;
 	border-radius: 4px;
@@ -252,7 +256,11 @@ export const Text = styled.span`
 	text-align: center;
 	margin-top: 24px;
 	color: #fff;
-	font-size: 14px;
+  font-size: 14px;
+  
+  &:hover{
+    color: #fff;
+  }
 `;
 
 export const TextSlashDate = styled.span`
