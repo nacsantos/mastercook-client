@@ -64,7 +64,6 @@ export const OrderDetailsH6 = styled.h6`
 
 export const Form = styled.form`
 	background: #AAAAAA;
-	max-width: 400px;
 	height: auto;
 	width: 100%;
 	z-index: 1;
