@@ -21,7 +21,7 @@ export const Navbar3 = () => {
 			<Navbar bg="dark" variant="dark">
 				<Navbar.Brand href="/feed">
 					<img
-						alt=""
+						alt="logo"
 						src={logo}
 						width="100"
 						height="50"
