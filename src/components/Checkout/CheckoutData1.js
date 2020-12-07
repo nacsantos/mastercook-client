@@ -1,7 +1,7 @@
 import React, { useContext, useState, Component } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import { Form, Button } from "react-bootstrap";
-import { Row, Col } from "react-bootstrap";
+import { Container, Row, Col } from "react-bootstrap";
 import { Context } from "../../Context/CheckoutContext";
 
 import {
@@ -9,7 +9,7 @@ import {
 } from "./CheckoutElements";
 
 import api from "../../api";
-import { withRouter } from "react-router-dom";
+import { withRouter, Redirect } from "react-router-dom";
 
 const total_order_ingredients_products = (order_ingredients_products) => {
        
@@ -27,60 +27,83 @@ const total_order_ingredients_products = (order_ingredients_products) => {
 
 class Order extends Component {
 	constructor(props) {
-		super(props);
-		this.order_ingredients_products = props;
-        this.order_ingredients_products = [
-            { 
-                "ingredient": "3 lb Cod Fillet",
-                "price": "11"
-            },
-            { 
-                "ingredient": "Chopped Fresh Parsley Leaves",
-                "price": "1"
-            },
-            { 
-                "ingredient": "Lemmons",
-                "price": "2.99"
-            }
-        ];
-        
-	}
+        super(props);
+        this.state = {
+            order_ingredients_products: [],
+            total: 0,
+            show: false,
+            redirect: false,
+        }
+        this.handleClick = this.handleClick.bind(this);
+    }
+
+    componentDidMount(){
+        this.setState({
+            order_ingredients_products: JSON.parse(localStorage.getItem('checkoutList')),
+            total: Number(localStorage.getItem('checkoutTotal').substring(1, localStorage.getItem('checkoutTotal').length - 1))
+        })
+    }
+
+    componentDidUpdate(prevProps, prevState){
+        if(prevState.order_ingredients_products !== this.state.order_ingredients_products){
+            this.setState({
+                show: true
+            })
+        }
+    }
+
+    handleClick() {
+        this.setState({
+            redirect: true
+        })
+    }
     
     render() {
-        
-        const order_ingredients_products_info = [];
-        
-        for (let ingredient_product in this.order_ingredients_products) {
-            order_ingredients_products_info.push(this.order_ingredients_products[ingredient_product]);
+
+        if (this.state.redirect) {
+            return <Redirect to={{pathname: "/compareprice/x"}} />
         }
         
         return (
             <>
-                <H5>Order Details</H5>
-                <hr />
-                <OrderDetails>
+                <h5 className="checkout-title">Order Details</h5>
+                <Container className="checkout-container2" fluid>
                     <Row>
-                        <Col><OrderDetailsH6><b>Ingredient/Product</b></OrderDetailsH6></Col>
-                        <Col><OrderDetailsH6><b>Price</b></OrderDetailsH6></Col>
+                        <Col>
+                            <h6><b>Ingredient/Product</b></h6>
+                        </Col>
+                        <Col>
+                            <h6><b>Price</b></h6>
+                        </Col>
                     </Row>
-                    
-                    <div>
-                      {
-                        order_ingredients_products_info.map(item => {
-                          return <div><Row><Col>{item.ingredient}</Col><Col>{item.price}€</Col></Row></div>;
-                        })
-                      }
-                    </div>
-                    
+                    {
+                        this.state.show ?
+                        this.state.order_ingredients_products.map(item => {
+                            console.log(item)
+                            return (
+                                <Row>
+                                    <Col>{item.ingredient}</Col>
+                                    <Col>{item.price}€</Col>
+                                </Row>
+                            );
+                        }) :
+                        <></>
+                    }
                     <hr />
                     <Row>
-                        <Col><h5>Total: {total_order_ingredients_products(this.order_ingredients_products)}€</h5></Col>
+                        <Col>
+                            <h5>Total: { 
+                                this.state.show ?
+                                this.state.total :
+                                ""
+                            } €</h5>
+                        </Col>
                     </Row>
                     <hr />
                     <center>
-                            <ButtonMedium>Edit Order</ButtonMedium>
+                            <ButtonMedium onClick={this.handleClick}>Edit Order</ButtonMedium>
                     </center>
-                </OrderDetails>
+                </Container>
             </>
         );
 	}

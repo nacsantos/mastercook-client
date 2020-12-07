@@ -183,20 +183,25 @@ export const ComparePricesContainer = (props) => {
 
     const handleClickRedirect = () => {
         let namePrice = []
+        let fullTotal = 0;
         for(let i = 0; i < props.ings.length; i++){
             let total = 0;
             for(let w = 0; w < supermarketData.length; w++){
                 let num = document.getElementById(i + "-" + w).value;
-                let price = document.getElementById(i + "-" + w + "-price").innerText;
+                let priceEur = document.getElementById(i + "-" + w + "-price").innerText;
+                let price = priceEur.substring(0, priceEur.length - 2);
                 num = Number(num);
                 price = Number(price);
                 total += (price * num);
+                fullTotal += total;
             }
-            let k = "{\"" + props.ings[i].text + "\":" + total + "}";
+            let k = "{\"ingredient\":\"" + props.ings[i].text + "\", \"price\":\"" + total + "\"}";
             let t = JSON.parse(k);
             namePrice.push(t);
         }
+        let ft = JSON.stringify(fullTotal.toFixed(2));
         localStorage.setItem('checkoutList',JSON.stringify(namePrice));
+        localStorage.setItem('checkoutTotal',ft);
         setRedirect(true);
     };
 

@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { CheckoutProvider } from "../../Context/CheckoutContext";
 
-import { Row, Col } from "react-bootstrap";
+import { Container, Row, Col } from "react-bootstrap";
 import CheckoutData1 from "./CheckoutData1";
 import CheckoutData2 from "./CheckoutData2";
 import "./CheckoutElements.css";
@@ -44,18 +44,16 @@ const CheckoutContainer = () => {
 
 const AuxComponent = () => {
 	return (
-		<>
-			<div className="container">
-				<Row>
-					<Col id="container1">
-						<CheckoutData1 />
-					</Col>
-					<Col id="container2">
-						<CheckoutData2 />
-					</Col>
-				</Row>
-			</div>
-		</>
+		<Container>
+			<Row>
+				<Col id="container1">
+					<CheckoutData1 />
+				</Col>
+				<Col id="container2">
+					<CheckoutData2 />
+				</Col>
+			</Row>
+		</Container>
 	);
 };
 

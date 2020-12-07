@@ -1,11 +1,11 @@
 import React, { useContext, useState, Component } from "react";
 import { ToastContainer, toast } from "react-toastify";
-import { Row, Col } from "react-bootstrap";
+import { Container, Row, Col } from "react-bootstrap";
 import { Context } from "../../Context/CheckoutContext";
-import { withRouter } from "react-router-dom";
+import { withRouter, Redirect } from "react-router-dom";
 
 import {
-	Container,
+	Container1,
 	FormWrap,
 	Icon,
 	FormContent,
@@ -53,10 +53,18 @@ class DeliveryAndPayment extends Component {
             user_order_payment_credit_debit_card_expiration_month: "",
             user_order_payment_credit_debit_card_expiration_year: "",
             user_order_payment_credit_debit_card_holder: "",
+            redirect: false,
 		};
         this.showCreditDebitCartSubform = false;
 		this.handleInputChange = this.handleInputChange.bind(this);
-		this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleClick = this.handleClick.bind(this);
+    }
+
+    handleClick() {
+        this.setState({
+            redirect: true
+        })
     }
     
 	handleSubmit = async (event) => {
@@ -124,11 +132,14 @@ class DeliveryAndPayment extends Component {
 	}
 
     render() {
+
+        if (this.state.redirect) {
+            return <Redirect to={{pathname: "/feed"}} />
+        }
         
         return (
 		<>
-            <H5>Delivery and Payment Details</H5>
-            <hr />
+            <h5 className="checkout-title">Delivery and Payment Details</h5>
             <Form onSubmit={this.handleSubmit}>
                 <FormLabel htmlFor="for">Full Name</FormLabel>
                 <FormInputFull
@@ -338,10 +349,9 @@ class DeliveryAndPayment extends Component {
                 </CreditDebitCardSubform>
                 <br />
                 
-                <FormButtonBig type="submit">Proceed</FormButtonBig>
+                <FormButtonBig type="submit" onClick={this.handleClick}>Proceed</FormButtonBig>
             </Form>
-            <br />
-            <br />
+            
 		</>
 		);
 	}

@@ -38,7 +38,7 @@ export const FormContent = styled.div`
 
 export const OrderDetails = styled.div`
 	background: #AAAAAA;
-    color: #FFFFFF;
+  color: #FFFFFF;
 	max-width: 400px;
 	height: auto;
 	width: 100%;
@@ -125,7 +125,7 @@ export const FormInputSmall = styled.input`
 `;
 
 export const FormButtonBig = styled.button`
-	background: #4a69bd;
+	background: #E67F22;
 	padding: 16px 0;
 	border: none;
 	border-radius: 4px;
@@ -136,7 +136,7 @@ export const FormButtonBig = styled.button`
 `;
 
 export const ButtonMedium = styled.button`
-	background: #4a69bd;
+	background: #E67F22;
 	padding: 16px 0;
 	border: none;
 	border-radius: 4px;
@@ -148,7 +148,6 @@ export const ButtonMedium = styled.button`
 
 export const ContainerSingleRow = styled('div')`
    width: 100%;
-   height: 100%;
    display: flex;
    flex-flow: row wrap;
    justify-content: space-between;
@@ -224,7 +223,6 @@ export const FormSelectYear = styled.select`
 
 export const FormRadioWrapper = styled.div`
     width: 100%;
-    height: 100%;
     display: flex;
     flex-flow: row wrap;
     justify-content: space-between;
@@ -233,7 +231,6 @@ export const FormRadioWrapper = styled.div`
 
 export const FormRadioWrapperCol = styled.div`
     width: 100%;
-    height: 100%;
     flex-flow: row wrap;
     justify-content: space-between;
     align-items: baseline;
@@ -255,7 +252,7 @@ export const RadioMark = styled.span`
     width: 0;
     height: 0;
     border-radius: 50%;
-    background-color: #03a9f4;
+    background-color: #E67F22;
     opacity: 0;
     left: 50%;
     top: 50%;
