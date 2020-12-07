@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { FaBars } from "react-icons/fa";
 import {
 	Nav,
@@ -13,9 +13,11 @@ import {
 	NavBtrWrapper,
 } from "./NavbarElements";
 import { animateScroll as scroll } from "react-scroll";
+import { Context } from "../../Context/AuthContext";
 
 const Navbar = ({ toogle }) => {
 	const [scrollNav, setScrollNav] = useState(false);
+	const { authenticated } = useContext(Context);
 
 	const changeNav = () => {
 		if (window.scrollY >= 80) {
@@ -94,12 +96,13 @@ const Navbar = ({ toogle }) => {
 						</NavItem>
 					</NavMenu>
 					<NavBtrWrapper>
-						<NavBtn>
+						{authenticated ? <FeedButton /> : <AuthButtons />}
+						{/* <NavBtn>
 							<NavBtnLink to="/signup">Sign Up</NavBtnLink>
 						</NavBtn>
 						<NavBtn>
 							<NavBtnLink to="/signin">Sign In</NavBtnLink>
-						</NavBtn>
+						</NavBtn> */}
 					</NavBtrWrapper>
 				</NavbarContainer>
 			</Nav>
@@ -108,3 +111,26 @@ const Navbar = ({ toogle }) => {
 };
 
 export default Navbar;
+
+export const FeedButton = () => {
+	return (
+		<>
+			<NavBtn>
+				<NavBtnLink to="/feed">Feed</NavBtnLink>
+			</NavBtn>
+		</>
+	);
+};
+
+export const AuthButtons = () => {
+	return (
+		<>
+			<NavBtn>
+				<NavBtnLink to="/signup">Sign Up</NavBtnLink>
+			</NavBtn>
+			<NavBtn>
+				<NavBtnLink to="/signin">Sign In</NavBtnLink>
+			</NavBtn>
+		</>
+	);
+};

@@ -42,7 +42,7 @@ function Feed2() {
 							</div>
 						</div>
 						{allRecipes.map((recipe, index) => (
-							<div className="col-md-6 col-lg-4">
+							<div className="col-md-6 col-lg-4" key={index}>
 								<div className="card border-0 transform-on-hover">
 									<a className="lightbox" href="">
 										<img

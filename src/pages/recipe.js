@@ -2,12 +2,13 @@ import React, { useState, useContext, useEffect } from "react";
 import Banner from "../components/Banner";
 import { Progress } from "antd";
 
-import Navbar3 from "../components/Navbar2";
+// import Navbar3 from "../components/Navbar2";
 import { RecipeContainer } from "../components/RecipeContainer";
 import { CommentsContainer } from "../components/CommentsContainer";
 import { FollowRecipe } from "../components/FollowRecipe";
 import { Context } from "../Context/RecipeContext";
 import MDSpinner from "react-md-spinner";
+import Navbar3 from "../components/Navbar3";
 
 let recipeData = {
 	title: "Greek Cod",

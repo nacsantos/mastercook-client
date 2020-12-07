@@ -1,4 +1,4 @@
-import "./Navbar2Elements.css";
+// import "./Navbar2Elements.css";
 import { ReactComponent as MasterbookLogo } from "../../assets/logos/masterbook-logo.svg";
 import { ReactComponent as ChevronIcon } from "../../assets/icons/chevron.svg";
 import { ReactComponent as ArrowIcon } from "../../assets/icons/arrow.svg";

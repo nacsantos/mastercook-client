@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext, useState, useEffect } from "react";
 import {
 	Navbar,
 	Nav,
@@ -6,10 +6,16 @@ import {
 	FormControl,
 	Button,
 	NavDropdown,
+	Container,
 } from "react-bootstrap";
 import logo from "../../assets/logos/masterbook-logo.svg";
+import { Context as AuthContext } from "../../Context/AuthContext";
+import { Context as RecipeContext } from "../../Context/RecipeContext";
+import "./Navbar3.css";
 
 export const Navbar3 = () => {
+	const { authenticated, handleLogout } = useContext(AuthContext);
+
 	return (
 		<>
 			<Navbar bg="dark" variant="dark">
@@ -23,9 +29,22 @@ export const Navbar3 = () => {
 					/>{" "}
 				</Navbar.Brand>
 				<Nav className="mr-auto">
-					<Nav.Link href="#home">Home</Nav.Link>
-					<Nav.Link href="#link">Link</Nav.Link>
+					<Nav.Link href="/">Home</Nav.Link>
+					<Nav.Link href="/feed">Feed</Nav.Link>
+					<Form inline>
+						<FormControl
+							type="text"
+							placeholder="Search for..."
+							className="mr-sm-2"
+						/>
+						<Button variant="outline-warning">Search</Button>
+					</Form>
 				</Nav>
+				{authenticated && (
+					<Button variant="outline-warning" onClick={handleLogout}>
+						Logout
+					</Button>
+				)}
 			</Navbar>
 		</>
 	);

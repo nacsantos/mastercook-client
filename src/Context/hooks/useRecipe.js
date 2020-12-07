@@ -17,6 +17,7 @@ export default function useRecipe() {
 	const [atualRecipe, setAtualRecipe] = useState({});
 	const [loadingAtualRecipe, setLoadingAtualRecipe] = useState(true);
 	const [counter, setCounter] = useState(null);
+	const [users, setUsers] = useState([]);
 
 	useEffect(() => {
 		let ignore = false;
@@ -146,7 +147,17 @@ export default function useRecipe() {
 		const recipes = await api.get("/api/recipes/");
 		const aux = recipes.data;
 		setAllRecipes(aux);
+		//handleSetUsers(aux);
 	}
+
+	function handleAllUsers() {
+		console.log(allRecipes);
+	}
+
+	// function handleSetUsers(recipes) {
+	// 	console.log("Olaaaa");
+	// }
+
 	function handleGetRecipe(event) {
 		setCounter(event.target.id);
 		// console.log("Entrou no handle");
@@ -247,5 +258,6 @@ export default function useRecipe() {
 		loadingAtualRecipe,
 		getAtual,
 		handleAddRecipe,
+		handleAllUsers,
 	};
 }

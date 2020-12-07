@@ -18,20 +18,20 @@
 }
 
 .recipe-title{
-    color: white;
+    color: black;
     font-weight: 900;
     font-family: 'Lato', sans-serif;
     margin-bottom: 0px;
 }
 
 .recipe-subtitle{
-    color: white;
+    color: black;
     font-family: 'Lato', sans-serif;
     margin-bottom: 2rem;
 }
 
 .recipe-desciption-title{
-    color: white;
+    color: black;
     font-weight: 700;
     font-size: 1.1rem;
     font-family: 'Lato', sans-serif;
@@ -39,7 +39,7 @@
 }
 
 .recipe-description{
-    color: white;
+    color: black;
     font-family: 'Lato', sans-serif;
     margin-bottom: 0px;
 }
@@ -56,17 +56,17 @@
 }
 
 .recipe-list-ul{
-    color: white;
+    color: black;
     padding-left: 1rem;
 }
 
 .recipe-ingredient{
-    color: white;
+    color:black;
     font-family: 'Lato', sans-serif;
 }
 
 .recipe-buy, .recipe-follow{
-    color: white;
+    color: black;
     margin-bottom: 0px;
     font-size: 0.8rem;
 }

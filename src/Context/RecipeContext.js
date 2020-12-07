@@ -35,6 +35,7 @@ function RecipeProvider({ children }) {
 		loadingAtualRecipe,
 		getAtual,
 		handleAddRecipe,
+		handleAllUsers,
 	} = useRecipe();
 
 	return (
@@ -69,6 +70,7 @@ function RecipeProvider({ children }) {
 				loadingAtualRecipe,
 				getAtual,
 				handleAddRecipe,
+				handleAllUsers,
 			}}
 		>
 			{children}
