@@ -108,7 +108,7 @@
     width: 81%;
   }
   
-  .todo-row:nth-child(4n + 1) {
+  /* .todo-row:nth-child(4n + 1) {
     background: #74b9ff;
   }
   
@@ -118,7 +118,7 @@
   
   .todo-row:nth-child(4n + 3) {
     background: #a29bfe;
-  }
+  } */
   
   .icons {
     display: flex;

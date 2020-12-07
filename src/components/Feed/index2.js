@@ -36,7 +36,7 @@ function Feed2() {
 									value={{ color: "orange", size: "305px" }}
 								>
 									<div className="card-body">
-										<BiListPlus onClick={handleAddRecipe} />
+										<BiListPlus onClick={handleAddRecipe} id="firstCard" />
 									</div>
 								</IconContext.Provider>
 							</div>
@@ -44,10 +44,13 @@ function Feed2() {
 						{allRecipes.map((recipe, index) => (
 							<div className="col-md-6 col-lg-4">
 								<div className="card border-0 transform-on-hover">
-									<a className="lightbox" href="images/F1.jpg">
+									<a className="lightbox" href="">
 										<img
 											src={recipe.recipe_photos[0]}
 											className="card-img-top"
+											key={index}
+											id={index}
+											onClick={handleGetRecipe}
 										></img>
 									</a>
 									<div className="card-body">

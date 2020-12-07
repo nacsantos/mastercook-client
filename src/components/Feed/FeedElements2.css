@@ -31,3 +31,7 @@
     object-fit: cover;
 }
 
+#firstCard {
+    cursor: pointer;
+}
+

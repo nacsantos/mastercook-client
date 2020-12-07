@@ -23,8 +23,7 @@ const RecipeData = () => {
 	return (
 		<>
 			<Form>
-				<Form.Group controlId="title" 
-						style={{ color: "white" }}>
+				<Form.Group controlId="title" style={{ color: "white" }}>
 					<Form.Label style={{ color: "white" }}>
 						<strong>Title</strong>
 					</Form.Label>
@@ -73,7 +72,7 @@ const RecipeData = () => {
 				block
 				onClick={handleSubmit}
 			>
-				Send Recipe
+				Save Recipe
 			</Button>
 		</>
 	);
