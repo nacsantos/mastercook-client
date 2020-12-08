@@ -6,7 +6,7 @@ import "./InstructionsContainer.css";
 
 export const InstructionsContainer = (props) => {
     const insItems = props.inst.map((element) => {
-        return <li key={element.id + "-" + element.text} className="recipe-ingredient">{element.text}</li>
+        return <li key={element.id + "-" + element.text} className="recipe-instruction">{element.text}</li>
     })
 
     const handleClick = () => {
@@ -19,9 +19,9 @@ export const InstructionsContainer = (props) => {
                 <h5 className="recipe-title">Instructions</h5>
                 <p className="recipe-follow">Make life easier for you, follow the recipe here:</p>
                 <button className="recipe-follow-button" onClick={handleClick}>Follow Recipe</button>
-                <ul className="recipe-list-ul">
+                <ol className="recipe-list-ul">
                     {insItems}
-                </ul>
+                </ol>
             </Col>
         </Row>
 	);

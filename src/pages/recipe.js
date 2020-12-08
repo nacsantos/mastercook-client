@@ -119,7 +119,7 @@ export const RecipePage = () => {
 					<Banner recipeName="Follow Recipe" />
 					<FollowRecipe
 						updateProgress={increaseProgress}
-						inst={atual_recipe.recipe_ingredients.reverse()}
+						inst={atual_recipe.recipe_steps_instructions}
 					/>
 				</>
 			)}
