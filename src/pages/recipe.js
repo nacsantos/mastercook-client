@@ -114,7 +114,7 @@ export const RecipePage = () => {
 						percent={progress}
 						strokeColor="#E67F22"
 						showInfo={false}
-						strokeWidth="0.2rem"
+						strokeWidth="0.5rem"
 					/>
 					<Banner recipeName="Follow Recipe" />
 					<FollowRecipe
