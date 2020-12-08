@@ -114,12 +114,12 @@ export const RecipePage = () => {
 						percent={progress}
 						strokeColor="#E67F22"
 						showInfo={false}
-						strokeWidth="0.2rem"
+						strokeWidth="0.5rem"
 					/>
 					<Banner recipeName="Follow Recipe" />
 					<FollowRecipe
 						updateProgress={increaseProgress}
-						inst={atual_recipe.recipe_ingredients.reverse()}
+						inst={atual_recipe.recipe_steps_instructions}
 					/>
 				</>
 			)}

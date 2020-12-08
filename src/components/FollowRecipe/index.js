@@ -10,6 +10,7 @@ export const FollowRecipe = (props) => {
     const [timer, setTimer] = useState("");
     const [started, setStarted] = useState(false);
     const [interval, setNewInterval] = useState("");
+    const [step, setStep] = useState(1);
     console.log("ddsd",props)
 
     useEffect(() => {    
@@ -67,6 +68,8 @@ export const FollowRecipe = (props) => {
     const handleClickPlus = () => {
         let k = chosenInstruction;
         let i = chosenInstruction < props.inst.length ? k += 1 : 0;
+        console.log(i)
+        setStep(step + 1)
         setChosenInstruction(i);
         let y = (i + 1) / props.inst.length * 100;
         props.updateProgress(y);
@@ -79,6 +82,8 @@ export const FollowRecipe = (props) => {
     const handleClickLess = () => {
         let k = chosenInstruction;
         let i = chosenInstruction < props.inst.length ? k -= 1 : 0;
+        console.log(i)
+        setStep(step - 1)
         setChosenInstruction(i);
         let y = (i + 1) / props.inst.length * 100;
         props.updateProgress(y);
@@ -127,6 +132,7 @@ export const FollowRecipe = (props) => {
                     </div>
                 </Col>
             </Row>
+            <div className="steps-div">{step}</div>
         </Container>
 	);
 };
