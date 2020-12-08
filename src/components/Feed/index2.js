@@ -103,6 +103,9 @@ function Feed2() {
 										<p className="text-muted card-text">
 											{recipe.recipe_subtitle}
 										</p>
+										<p className="text-muted card-text">
+											Created by: {recipe.recipe_owner_user.owner_user_username}
+										</p>
 										<button
 											type="button"
 											className="btn btn-info"
