@@ -7,7 +7,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 const FeedPage = () => {
 	return (
 		<>
-			<Navbar3 />
+			{/* <Navbar3 /> */}
 			<Feed2 />
 		</>
 	);

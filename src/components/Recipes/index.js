@@ -40,7 +40,7 @@ const AuxComponent = () => {
 	return (
 		<>
 			<div className="container">
-				<Row>
+				<Row id="recipeData">
 					<Col id="container1">
 						<RecipeData />
 					</Col>

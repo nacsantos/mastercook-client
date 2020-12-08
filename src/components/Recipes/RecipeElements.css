@@ -1,14 +1,26 @@
 #container1 {
     margin-top: 20px;
-    color: white;
+    /* color: white; */
 }
 
 #container2 {
-    color: white;
+    /* color: white; */
     margin-top: 20px;
 }
 
 #imageContainer{
-    color: white;
+    /* color: white; */
     padding: 22px
+}
+
+#h6{
+    color: black
+}
+
+#recipeData{
+    margin-bottom: 40px;
+}
+#legends{
+    color: black;
+    font-weight: bold;
 }

@@ -31,14 +31,15 @@ export const Navbar3 = () => {
 				<Nav className="mr-auto">
 					<Nav.Link href="/">Home</Nav.Link>
 					<Nav.Link href="/feed">Feed</Nav.Link>
-					<Form inline>
+					{/* <Form inline>
 						<FormControl
 							type="text"
-							placeholder="Search for..."
+							placeholder="Search for users..."
 							className="mr-sm-2"
+					
 						/>
 						<Button variant="outline-warning">Search</Button>
-					</Form>
+					</Form> */}
 				</Nav>
 				{authenticated && (
 					<Button variant="outline-warning" onClick={handleLogout}>

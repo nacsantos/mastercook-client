@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react";
 import { Form, Button } from "react-bootstrap";
 import { Context } from "../../Context/RecipeContext";
+import "./RecipeElements.css";
 function initialState() {
 	return { title: "", subtitle: "", description: "" };
 }
@@ -25,11 +26,12 @@ const RecipeData = () => {
 			<Form>
 				<Form.Group controlId="title" style={{ color: "white" }}>
 					<Form.Label style={{ color: "white" }}>
-						<strong>Title</strong>
+						<h5 id="legends">Title</h5>
+						{/* <strong>Title</strong> */}
 					</Form.Label>
 					<Form.Control
 						type="text"
-						style={{ backgroundColor: "#949ab0", color: "white" }}
+						style={{ backgroundColor: "#949ab0", color: "black" }}
 						placeholder="Insert recipe title..."
 						onChange={handleChange}
 						// id="title"
@@ -38,11 +40,11 @@ const RecipeData = () => {
 				</Form.Group>
 				<Form.Group controlId="subtitle">
 					<Form.Label style={{ color: "white" }}>
-						<strong>Subtitle</strong>
+						<h5 id="legends">Subtitle</h5>
 					</Form.Label>
 					<Form.Control
 						type="text"
-						style={{ backgroundColor: "#949ab0", color: "white" }}
+						style={{ backgroundColor: "#949ab0", color: "black" }}
 						placeholder="Insert recipe subtitle.."
 						//onChange={handleChange}
 						// id="subtitle"
@@ -52,12 +54,12 @@ const RecipeData = () => {
 				</Form.Group>
 				<Form.Group controlId="description">
 					<Form.Label style={{ color: "white" }}>
-						<strong>Description</strong>
+						<h5 id="legends">Description</h5>
 					</Form.Label>
 					<Form.Control
 						as="textarea"
 						rows={3}
-						style={{ backgroundColor: "#949ab0", color: "white" }}
+						style={{ backgroundColor: "#949ab0", color: "black" }}
 						placeholder="Insert recipe description..."
 						//onChange={handleChange}
 						// id="description"

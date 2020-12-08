@@ -15,7 +15,7 @@ import {
 import { ToastContainer, toast } from "react-toastify";
 import Container from "react-bootstrap/Container";
 import "react-toastify/dist/ReactToastify.css";
-import "./Signin.css"
+import "./Signin.css";
 
 const SignIn = () => {
 	const { errorMessage, errorLogin, setErrorLogin } = useContext(Context);
@@ -74,10 +74,10 @@ const LoginForm = (props) => {
 							<FormButton type="button" onClick={handleLogin}>
 								Sign In
 							</FormButton>
-                            <br/>
+							{/* <br/>
                             <center>
                                 <a className="signin-text" href=""><Text>Forgot password?</Text></a>
-                            </center>
+                            </center> */}
 						</Form>
 					</FormContent>
 				</FormWrap>
