@@ -35,7 +35,12 @@ function Feed2() {
 	// console.log(allRecipes[8].recipe_photos[0]);
 
 	const filteredRecipes = allRecipes.filter((recipe) => {
-		return recipe.recipe_owner_user.owner_user_username.includes(search);
+		return (
+			recipe.recipe_owner_user.owner_user_username
+				.toLowerCase()
+				.includes(search.toLowerCase()) ||
+			recipe.recipe_title.toLowerCase().includes(search.toLowerCase())
+		);
 		// country.name.toLowerCase().includes(search.toLowerCase());
 	});
 	console.log("filtereted", filteredRecipes);
@@ -54,11 +59,11 @@ function Feed2() {
 				<Nav className="mr-auto">
 					<Nav.Link href="/">Home</Nav.Link>
 					<Nav.Link href="/feed">Feed</Nav.Link>
-					<Form inline>
+					<Form inline id="formInline">
 						<FormControl
 							type="text"
-							placeholder="Search for users..."
-							className="mr-sm-2"
+							placeholder="Search for users or recipes..."
+							className="mr-sm-2 w-100"
 							onChange={(e) => setSearch(e.target.value)}
 						/>
 						{/* <Button variant="outline-warning">Search</Button> */}
